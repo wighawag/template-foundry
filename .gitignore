@@ -8,6 +8,8 @@ out/
 /broadcast/**/dry-run/
 
 node_modules
+.vscode/*
+!*.default
 
 # Docs
 docs/

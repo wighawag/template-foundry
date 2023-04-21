@@ -5,13 +5,18 @@ import "forge-deploy/DeployScript.sol";
 import "generated/deployer/DeployerFunctions.g.sol";
 
 contract Deployments is DeployScript {
-    using DeployerFunctions for Deployer;
+	using DeployerFunctions for Deployer;
 
-    function deploy() override internal {
-        deployer.deploy_GreetingsRegistry("Registry", "", DeployOptions({
-            deterministic: 0,
-            proxyOnTag: "testnet",
-            proxyOwner: vm.envAddress("DEPLOYER")
-        }));
-    }
+	function deploy() external returns (GreetingsRegistry) {
+		return
+			deployer.deploy_GreetingsRegistry(
+				"Registry",
+				"",
+				DeployOptions({
+					deterministic: 0,
+					proxyOnTag: "testnet",
+					proxyOwner: vm.envAddress("DEPLOYER")
+				})
+			);
+	}
 }

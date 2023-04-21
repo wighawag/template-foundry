@@ -20,7 +20,12 @@ contract GreetingsRegistry is Proxied {
 	/// @param dayTimeInSeconds the time of the day in seconds where 00:00 => 0 and 23:59 => 82859
 	/// @dev the timestamp is included to speedup indexing
 	/// see: https://ethereum-magicians.org/t/proposal-for-adding-blocktimestamp-to-logs-object-returned-by-eth-getlogs-and-related-requests/11183
-	event MessageChanged(address indexed user, uint256 timestamp, string message, uint24 dayTimeInSeconds);
+	event MessageChanged(
+		address indexed user,
+		uint256 timestamp,
+		string message,
+		uint24 dayTimeInSeconds
+	);
 
 	// ----------------------------------------------------------------------------------------------
 	// TYPES
