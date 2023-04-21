@@ -43,6 +43,8 @@ export context out:
 sync:
     forge-deploy sync
 
+test:
+    forge test
 
 deploy $MODE="localhost": (compile)
     ldenv just _deploy
