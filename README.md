@@ -8,9 +8,9 @@ Once your environment is setup (see [requirements](#requirements) and [setup](#s
 
 ### Compile your contracts
 
-    ```
-    just compile
-    ```
+```
+just compile
+```
 
 ### Test your contracts
 
