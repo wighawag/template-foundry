@@ -7,7 +7,7 @@ import "generated/deployer/DeployerFunctions.g.sol";
 contract Deployments is DeployScript {
 	using DeployerFunctions for Deployer;
 
-	function deploy() external returns (GreetingsRegistry) {
+	function deploy(bytes calldata) external returns (GreetingsRegistry) {
 		return
 			deployer.deploy_GreetingsRegistry(
 				"Registry",

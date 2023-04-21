@@ -9,11 +9,7 @@ contract GreetingsRegistryTest is Test {
 	GreetingsRegistry public registry;
 
 	function setUp() public {
-		Deployments deployments = new Deployments();
-		deployments.run();
-		Deployer deployer = deployments.deployer();
-
-		registry = GreetingsRegistry(deployer.getAddress("Registry"));
+		registry = new Deployments().deploy("");
 		registry.setMessage("hello", 1);
 	}
 
