@@ -57,11 +57,3 @@ _deploy:
 
 watch:
     watchexec -w script -w src just compile
-# watch:
-#     #!/bin/bash -eux
-#     watchexec -w script forge build &
-#     watchexec -w src just compile &
-#     trap 'kill $(jobs -pr)' EXIT
-#     wait;
-
-

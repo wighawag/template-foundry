@@ -28,26 +28,25 @@ just watch
 
 ### deploy your contract
 
-
 - in memory only:
 
-    ```
-    just deploy
-    ```
+  ```
+  just deploy
+  ```
 
 - on localhost
 
-    This assume you have anvil running : `anvil`
+  This assume you have anvil running : `anvil`
 
-    ```
-    just deploy localhost
-    ```
+  ```
+  just deploy localhost
+  ```
 
 - on a network of your choice configured via `.env.<network>.local` (see [.env.localhost](.env.localhost))
 
-    ```
-    just deploy <network>
-    ```
+  ```
+  just deploy <network>
+  ```
 
 ## requirements:
 
@@ -66,6 +65,7 @@ just watch
     ```
 
   - ldenv (a env loader) : https://crates.io/crates/ldenv
+
     ```
     cargo install --locked ldenv;
     ```
@@ -74,7 +74,6 @@ just watch
     ```
     cargo install --locked watchexec-cli;
     ```
-
 
 - foundry (for contracts) : https://getfoundry.sh/
 
