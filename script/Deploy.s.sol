@@ -7,16 +7,7 @@ import "generated/deployer/DeployerFunctions.g.sol";
 contract Deployments is DeployScript {
 	using DeployerFunctions for Deployer;
 
-	function deploy(bytes calldata) external returns (GreetingsRegistry) {
-		return
-			deployer.deploy_GreetingsRegistry(
-				"Registry",
-				"",
-				DeployOptions({
-					deterministic: 0,
-					proxyOnTag: "testnet",
-					proxyOwner: vm.envAddress("DEPLOYER")
-				})
-			);
+	function deploy(bytes calldata) external returns (Counter) {
+		return deployer.deploy_Counter("Counter");
 	}
 }
