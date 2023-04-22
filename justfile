@@ -31,8 +31,8 @@ uninstall:
     rm .crates.toml
     rm .crates2.json
 
-compile:
-    forge-deploy gen-deployer && forge build
+compile: gen-deployer
+    forge build
 
 gen-deployer:
     forge-deploy gen-deployer
@@ -43,7 +43,7 @@ export context out:
 sync:
     forge-deploy sync
 
-test:
+test: gen-deployer
     forge test
 
 deploy $MODE="localhost": (compile)
