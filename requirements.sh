@@ -1,7 +1,7 @@
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y;
-source "$HOME/.cargo/env"
+#!/bin/sh
 curl -L https://foundry.paradigm.xyz | bash;
-export PATH="$PATH:$HOME/.foundry/bin";
-foundryup;
-cargo install --locked just;
-cargo install --locked ldenv;
+PATH="$PATH:$HOME/.foundry/bin" foundryup;
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y;
+PATH="$PATH:$HOME/.cargo/bin" cargo install --locked just;
+PATH="$PATH:$HOME/.cargo/bin" cargo install --locked ldenv;
