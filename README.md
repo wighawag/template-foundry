@@ -90,13 +90,3 @@ just install
 ```
 
 See version specified in the [justfile](./justfile)
-
-## VSCode
-
-If you are using vscode, you can get prettier and solidity to work for you using the following:
-
-```
-pnpm i
-```
-
-This assumes you have [node](https://nodejs.org/) and [pnpm](https://pnpm.io/) installed (Note: you can easily replace pnpm with npm and use a different lock file)

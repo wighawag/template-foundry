@@ -16,13 +16,19 @@ _default:
   @just --choose
 
 # example of how to setup forge-deploy as a local binary
-install:
+default_install := ""
+install git=default_install:
 	cargo install --version {{forge-deploy}} --root . forge-deploy;
-	forge install --no-git foundry-rs/forge-std@v{{forge-std}};
-	forge install --no-git wighawag/forge-deploy@v{{forge-deploy}};
+	if [ "{{git}}" = "git" ]; then \
+		forge install foundry-rs/forge-std@v{{forge-std}};\
+		forge install wighawag/forge-deploy@v{{forge-deploy}};\
+	else \
+		forge install --no-git foundry-rs/forge-std@v{{forge-std}};\
+		forge install --no-git wighawag/forge-deploy@v{{forge-deploy}};\
+	fi;
 	./bin/forge-deploy gen-deployer;
 
-reinstall: uninstall install
+reinstall git="": uninstall (install git)
 
 uninstall:
 	rm -Rf lib/forge-deploy;
