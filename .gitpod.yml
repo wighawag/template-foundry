@@ -15,7 +15,7 @@ tasks:
       cp -R $HOME/.foundry/bin ./;
       cargo install --root . just;
       cargo install --root . ldenv;
-      PATH="$PATH:./bin" just install;
+      PATH="$PATH:./bin" just reinstall;
     command: |
       echo "export PATH=\"\$PATH:./bin\"" >> ~/.bashrc;
       source ~/.bashrc;
