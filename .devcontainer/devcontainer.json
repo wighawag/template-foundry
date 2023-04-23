@@ -9,7 +9,7 @@
   },
   "onCreateCommand": [
     "sh",
-    "setup.sh"
+    "requirements.sh"
   ],
   "customizations": {
     "vscode": {
