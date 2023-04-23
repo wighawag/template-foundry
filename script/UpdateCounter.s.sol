@@ -5,7 +5,7 @@ import {Script, console} from "forge-std/Script.sol";
 import {Deployer} from "forge-deploy/Deployer.sol";
 import {Counter} from "src/Counter.sol";
 
-contract CounterScript is Script {
+contract UpdateCounterScript is Script {
     function setUp() public {}
 
     function run(uint256 newNumber) public {

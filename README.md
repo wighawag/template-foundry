@@ -53,7 +53,7 @@ just watch
 ### execute script on the deployed contract
 
 ```bash
-just run localhost script/Counter.s.sol "run(uint256)" 42;
+just run localhost script/UpdateCounter.s.sol "run(uint256)" 42;
 ```
 
 ## requirements:
