@@ -7,7 +7,7 @@ tasks:
       PATH="$PATH:$HOME/.foundry/bin" foundryup;
       cargo install --locked just;
       cargo install --locked ldenv;
-      just install;
+      PATH="$PATH:$HOME/.foundry/bin" just install;
     command: anvil
 
 # Ports to expose on workspace startup
