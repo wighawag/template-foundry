@@ -89,7 +89,7 @@ just watch
   You can execute the the `requirements.sh` file to get all of them setup (minus watchexec-cli)
 
   ```
-  ./requirements.sh
+  chmod u+x ./requirements.sh && ./requirements.sh
   ```
 
 ## Setup

@@ -1,4 +1,4 @@
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh;
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y;
 source "$HOME/.cargo/env"
 curl -L https://foundry.paradigm.xyz | bash;
 export PATH="$PATH:$HOME/.foundry/bin";
