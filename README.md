@@ -8,13 +8,13 @@ Once your environment is setup (see [requirements](#requirements) and [setup](#s
 
 ### Compile your contracts
 
-```
+```bash
 just compile
 ```
 
 ### Test your contracts
 
-```
+```bash
 just test
 ```
 
@@ -22,7 +22,7 @@ See how the [GreetingsRegistry.t.sol](test/GreetingsRegistry.t.sol) test use the
 
 ### watch for changes and rebuild automatically
 
-```
+```bash
 just watch
 ```
 
@@ -30,7 +30,7 @@ just watch
 
 - in memory only:
 
-  ```
+  ```bash
   just deploy
   ```
 
@@ -38,13 +38,13 @@ just watch
 
   This assume you have anvil running : `anvil`
 
-  ```
+  ```bash
   just deploy localhost
   ```
 
 - on a network of your choice configured via `.env.<network>.local` (see [.env.localhost](.env.localhost))
 
-  ```
+  ```bash
   just deploy <network>
   ```
 
@@ -52,7 +52,7 @@ just watch
 
 - cargo (for dependencies and tools) : https://www.rust-lang.org/learn/get-started
 
-  ```
+  ```bash
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh;
   ```
 
@@ -60,24 +60,24 @@ just watch
 
   - just (a make-like tool) : https://just.systems
 
-    ```
+    ```bash
     cargo install --locked just;
     ```
 
   - ldenv (a env loader) : https://crates.io/crates/ldenv
 
-    ```
+    ```bash
     cargo install --locked ldenv;
     ```
 
   - watchexec-cli (a file watcher executor) : https://github.com/watchexec/watchexec
-    ```
+    ```bash
     cargo install --locked watchexec-cli;
     ```
 
 - foundry (for contracts) : https://getfoundry.sh/
 
-  ```
+  ```bash
   curl -L https://foundry.paradigm.xyz | bash; foundryup;
   ```
 
@@ -85,8 +85,15 @@ just watch
 
 Before getting started we need to execute the following to have the environment ready
 
-```
+```bash
 just install
+```
+
+> Note: By default this install dependencies without git submodule
+> If you use git and want to make use of the submodule. Use the following command instead:
+
+```bash
+just install git
 ```
 
 See version specified in the [justfile](./justfile)
