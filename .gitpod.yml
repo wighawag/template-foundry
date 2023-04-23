@@ -1,10 +1,13 @@
-image:
-  file: Dockerfile
+image: gitpod/workspace-full
 
 tasks:
-  - name: Install & Run Node
-    before: just install
-    init: just compile
+  - name: Setup, Install & Run Node
+    init: |
+      curl -L https://foundry.paradigm.xyz | bash;
+      PATH="$PATH:$HOME/.foundry/bin" foundryup;
+      cargo install --locked just;
+      cargo install --locked ldenv;
+      just install;
     command: anvil
 
 # Ports to expose on workspace startup
