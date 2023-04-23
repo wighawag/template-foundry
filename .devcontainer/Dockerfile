@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/devcontainers/universal:2.0.24-focal
 
-USER codespace
+USER 1000
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain 1.69.0;
 
