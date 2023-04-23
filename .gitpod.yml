@@ -5,10 +5,14 @@ tasks:
     init: |
       curl -L https://foundry.paradigm.xyz | bash;
       PATH="$PATH:$HOME/.foundry/bin" foundryup;
-      cargo install --locked just;
-      cargo install --locked ldenv;
-      PATH="$PATH:$HOME/.foundry/bin" just install;
-    command: anvil
+      cp -R $HOME/.foundry/bin ./;
+      cargo install --root . just;
+      cargo install --root . ldenv;
+      PATH="$PATH:./bin" just install;
+    command: |
+      echo "export PATH=\"\$PATH:./bin\"" >> ~/.bashrc;
+      source ~/.bashrc;
+      anvil
 
 # Ports to expose on workspace startup
 ports:
