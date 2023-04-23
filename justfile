@@ -18,7 +18,6 @@ _default:
 # example of how to setup forge-deploy as a local binary
 default_install := ""
 install git=default_install:
-	cargo install --version {{forge-deploy}} --root . forge-deploy;
 	if [ "{{git}}" = "git" ]; then \
 		forge install foundry-rs/forge-std@v{{forge-std}};\
 		forge install wighawag/forge-deploy@v{{forge-deploy}};\
@@ -26,6 +25,7 @@ install git=default_install:
 		forge install --no-git foundry-rs/forge-std@v{{forge-std}};\
 		forge install --no-git wighawag/forge-deploy@v{{forge-deploy}};\
 	fi;
+	mkdir bin; cd lib/forge-deploy; cargo build --release; cp target/release/forge-deploy ../../bin/;
 	./bin/forge-deploy gen-deployer;
 
 reinstall git="": uninstall (install git)
@@ -59,13 +59,13 @@ rpc_url := env_var_or_default(context_RPC_URL_varname,env_var_or_default("RPC_UR
 context_DEPLOYER_PRIVATE_KEY_varname := `echo "DEPLOYER_PRIVATE_KEY_${DEPLOYMENT_CONTEXT-}"`
 private_key := env_var_or_default(context_DEPLOYER_PRIVATE_KEY_varname,env_var_or_default("DEPLOYER_PRIVATE_KEY", ""))
 
-deploy $DEPLOYMENT_CONTEXT="localhost": (compile)
-	ldenv -n DEPLOYMENT_CONTEXT just _deploy
-@_deploy:
+deploy $DEPLOYMENT_CONTEXT="localhost" +ARGS="": (compile)
+	ldenv -n DEPLOYMENT_CONTEXT just _deploy {{ARGS}}
+@_deploy +ARGS="":
 	if [ "${DEPLOYMENT_CONTEXT}" = "void" ]; then \
-		forge script script/Deploy.s.sol --private-key {{private_key}}; \
+		forge script script/Deploy.s.sol --private-key {{private_key}} {{ARGS}};\
 	else \
-		forge script script/Deploy.s.sol --private-key {{private_key}} -vvvv --rpc-url {{rpc_url}} --broadcast && forge-deploy sync; \
+		forge script script/Deploy.s.sol --private-key {{private_key}} --rpc-url {{rpc_url}} --broadcast {{ARGS}} && forge-deploy sync; \
 	fi;
 
 watch:
