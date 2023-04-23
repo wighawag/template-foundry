@@ -1,7 +1,8 @@
 {
     "recommendations": [
-        "juanblanco.solidity",
+        "NomicFoundation.hardhat-solidity",
         "Crisgarner.foundry-snippets",
         "praneshasp.vscode-foundry-test-adapter",
+        "tamasfe.even-better-toml"
     ]
 }
