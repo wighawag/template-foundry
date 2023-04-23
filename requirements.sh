@@ -6,4 +6,6 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y;
 PATH="$PATH:$HOME/.cargo/bin" cargo install --locked just;
 PATH="$PATH:$HOME/.cargo/bin" cargo install --locked ldenv;
 
-PATH="$PATH:$HOME/.cargo/bin" just install
+# PATH="$PATH:$HOME/.cargo/bin" just install;
+
+echo `pwd` `whoami` > $HOME/log.txt
