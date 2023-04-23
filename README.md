@@ -2,6 +2,8 @@
 
 A template to build, deploy and test smart contracts using [foundry-rs/forge](https://github.com/foundry-rs/foundry) and [forge-deploy](https://github.com/wighawag/forge-deploy)
 
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/wighawag/template-foundry)
+
 ## How to use ?
 
 Once your environment is setup (see [requirements](#requirements) and [setup](#setup)), you can do the following using [just](https://just.systems):
