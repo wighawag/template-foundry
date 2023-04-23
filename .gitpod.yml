@@ -24,6 +24,5 @@ tasks:
 # Ports to expose on workspace startup
 ports:
   - port: 8545
-    onOpen: notify
     name: RPC
     description: NODE RPC
