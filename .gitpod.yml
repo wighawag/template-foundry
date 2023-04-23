@@ -1,0 +1,14 @@
+image: gitpod/workspace-full
+
+tasks:
+  - name: Setup, Install & Run Node
+    before: sh requirements.sh
+    init: just install
+    command: anvil
+
+# Ports to expose on workspace startup
+ports:
+  - port: 8545
+    onOpen: notify
+    name: RPC
+    description: NODE RPC
