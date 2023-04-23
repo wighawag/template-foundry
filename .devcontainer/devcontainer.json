@@ -1,6 +1,6 @@
 {
   // "dockerFile": "Dockerfile",
-  "image": "mcr.microsoft.com/vscode/devcontainers/universal:2.0.8-focal",
+  // "image": "mcr.microsoft.com/vscode/devcontainers/universal:2.0.8-focal",
   "features": {
     "ghcr.io/devcontainers/features/rust:1": {
       "version": "1.69.0"
