@@ -4,7 +4,7 @@
   "image": "mcr.microsoft.com/vscode/devcontainers/universal",
   "features": {
     "ghcr.io/devcontainers/features/rust:1": {
-      "version": "1.69.0"
+      // "version": "1.69.0"
     }
   },
   "onCreateCommand": [
