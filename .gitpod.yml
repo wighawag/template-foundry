@@ -1,9 +1,10 @@
-image: gitpod/workspace-full
+image:
+  file: Dockerfile
 
 tasks:
-  - name: Setup, Install & Run Node
-    before: sh requirements.sh
-    init: just install
+  - name: Install & Run Node
+    before: just install
+    init: just compile
     command: anvil
 
 # Ports to expose on workspace startup
