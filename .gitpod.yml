@@ -15,6 +15,7 @@ tasks:
       cp -R $HOME/.foundry/bin ./;
       cargo install --root . just;
       cargo install --root . ldenv;
+      cargo install --root . watchexec-cli;
       PATH="$PATH:./bin" just reinstall;
     command: |
       echo "export PATH=\"\$PATH:./bin\"" >> ~/.bashrc;
