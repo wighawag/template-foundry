@@ -70,7 +70,12 @@ just watch
     cargo install --locked ldenv;
     ```
 
-  - watchexec-cli (a file watcher executor) : https://github.com/watchexec/watchexec
+  - watchexec-cli (optional, for watch command) :
+
+    Checkout the instalation procedure here : https://github.com/watchexec/watchexec
+
+    You can alternatively install watchexec-cli from source but this will take sone time
+
     ```bash
     cargo install --locked watchexec-cli;
     ```
@@ -79,6 +84,12 @@ just watch
 
   ```bash
   curl -L https://foundry.paradigm.xyz | bash; foundryup;
+  ```
+
+  You can execute the the `requirements.sh` file to get all of them setup (minus watchexec-cli)
+
+  ```
+  ./requirements.sh
   ```
 
 ## Setup
