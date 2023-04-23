@@ -1,5 +1,12 @@
 image: gitpod/workspace-full
 
+vscode:
+  extensions:
+    - NomicFoundation.hardhat-solidity
+    - Crisgarner.foundry-snippets
+    - praneshasp.vscode-foundry-test-adapter
+    - tamasfe.even-better-toml
+
 tasks:
   - name: Setup, Install & Run Node
     init: |
