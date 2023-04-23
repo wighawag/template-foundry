@@ -8,7 +8,7 @@ export PATH := "./bin:" + env_var('PATH')
 # -------------------------------------------------------------------------------------------------
 # VERSIONS
 # -------------------------------------------------------------------------------------------------
-forge-deploy := "0.0.8"
+forge-deploy := "0.0.15"
 forge-std := "1.5.3"
 # -------------------------------------------------------------------------------------------------
 
@@ -31,11 +31,11 @@ install git=default_install:
 reinstall git="": uninstall (install git)
 
 uninstall:
-    rm -Rf lib/forge-deploy;
-    rm -Rf lib/forge-std;
-    rm  bin/forge-deploy
-    rm .crates.toml
-    rm .crates2.json
+    rm -Rf lib/forge-deploy || echo "";
+    rm -Rf lib/forge-std || echo "";
+    rm bin/forge-deploy || echo "";
+    rm .crates.toml || echo "";
+    rm .crates2.json || echo "";
 
 compile: gen-deployer
     forge build

@@ -5,9 +5,9 @@ import "forge-deploy/DeployScript.sol";
 import "generated/deployer/DeployerFunctions.g.sol";
 
 contract Deployments is DeployScript {
-	using DeployerFunctions for Deployer;
+    using DeployerFunctions for Deployer;
 
-	function deploy(bytes calldata) external returns (Counter) {
-		return deployer.deploy_Counter("Counter");
-	}
+    function deploy() external returns (Counter) {
+        return deployer.deploy_Counter("Counter");
+    }
 }
