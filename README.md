@@ -18,7 +18,7 @@ just compile
 just test
 ```
 
-See how the [GreetingsRegistry.t.sol](test/GreetingsRegistry.t.sol) test use the deploy script to get setup, removing the need to duplicate the deployment procedure.
+See how the [Counter.t.sol](test/Counter.t.sol) test use the deploy script to get setup, removing the need to duplicate the deployment procedure.
 
 ### watch for changes and rebuild automatically
 
@@ -31,7 +31,7 @@ just watch
 - in memory only:
 
   ```bash
-  just deploy
+  just deploy void
   ```
 
 - on localhost
@@ -42,7 +42,9 @@ just watch
   just deploy localhost
   ```
 
-- on a network of your choice configured via `.env.<network>.local` (see [.env.localhost](.env.localhost))
+- on a network of your choice
+
+  Just make sure you have `RPC_URL` or `RPC_URL_<network>` set for it either in `env.local` or `.env.<network>.local`
 
   ```bash
   just deploy <network>
@@ -53,7 +55,7 @@ just watch
 - cargo (for dependencies and tools) : https://www.rust-lang.org/learn/get-started
 
   ```bash
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh;
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y;
   ```
 
   This allow you to install the following tools:
@@ -88,7 +90,7 @@ just watch
 
   You can execute the the `requirements.sh` file to get all of them setup (minus watchexec-cli)
 
-  ```
+  ```bash
   chmod u+x ./requirements.sh && ./requirements.sh
   ```
 
