@@ -9,6 +9,6 @@ contract Deployments is DeployScript {
     using DeployerFunctions for Deployer;
 
     function deploy() external returns (Counter) {
-        return deployer.deploy_Counter("Counter");
+        return deployer.deploy_Counter("MyCounter");
     }
 }

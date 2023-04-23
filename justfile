@@ -68,5 +68,10 @@ deploy $DEPLOYMENT_CONTEXT="localhost" +ARGS="": (compile)
         forge script script/Deploy.s.sol --private-key {{private_key}} --rpc-url {{rpc_url}} --broadcast {{ARGS}} && forge-deploy sync; \
     fi;
 
+run $DEPLOYMENT_CONTEXT path sig +ARGS: (compile)
+    ldenv -n DEPLOYMENT_CONTEXT just _run {{path}} "{{sig}}" {{ARGS}}
+@_run path sig +ARGS="":
+    forge script --private-key {{private_key}} --rpc-url {{rpc_url}} --broadcast {{path}} --sig "{{sig}}" {{ARGS}};
+
 watch:
     watchexec -w script -w src just compile

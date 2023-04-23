@@ -50,6 +50,12 @@ just watch
   just deploy <network>
   ```
 
+### execute script on the deployed contract
+
+```bash
+just run localhost script/Counter.s.sol "run(uint256)" 42;
+```
+
 ## requirements:
 
 - cargo (for dependencies and tools) : https://www.rust-lang.org/learn/get-started
