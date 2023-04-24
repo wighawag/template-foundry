@@ -73,5 +73,11 @@ run $DEPLOYMENT_CONTEXT path sig +ARGS: (compile)
 @_run path sig +ARGS="":
     forge script --private-key {{private_key}} --rpc-url {{rpc_url}} --broadcast {{path}} --sig "{{sig}}" {{ARGS}};
 
+
+# UTILITY TO load env variable (do not escape parenthesis)
+@_load $DEPLOYMENT_CONTEXT +ARGS:
+    ldenv -n DEPLOYMENT_CONTEXT just {{ARGS}}
+
+
 watch:
     watchexec -w script -w src just compile
