@@ -55,7 +55,7 @@ See how the [Counter.t.sol](test/Counter.t.sol) test use the deploy script to ge
 ### execute script on the deployed contract
 
 ```bash
-./run run localhost script/UpdateCounter.s.sol --sig 'run(uint256)' 42;
+./run script localhost script/UpdateCounter.s.sol --sig 'run(uint256)' 42;
 ```
 
 ## requirements:
