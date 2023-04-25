@@ -13,7 +13,7 @@ forge_std="1.5.3"
 # -------------------------------------------------------------------------------------------------
 
 function compile {
-    gen_deployer && forge build
+    gen_deployer && forge build $@
 }
 
 function gen_deployer {
@@ -29,11 +29,11 @@ function sync {
 }
 
 function test {
-    gen_deployer && forge test
+    gen_deployer && forge test $@
 }
 
 function watch {
-    watchexec -w script -w src ./run compile
+    watchexec -w script -w src ./run compile $@
 }
 
 function watch_deploy {
@@ -72,7 +72,7 @@ function script {
 
 function local_node {
 	rm -Rf deployments/localhost;
-	anvil;
+	anvil $@;
 }
 
 function start {
