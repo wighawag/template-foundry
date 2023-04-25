@@ -33,11 +33,13 @@ function test {
 }
 
 function watch {
-    watchexec -w script -w src ./run compile $@
+    # bash need to specified for windows
+    watchexec -w script -w src bash ./run compile $@
 }
 
 function watch_deploy {
-    watchexec -w script -w src ./run deploy $@
+    # bash need to specified for windows
+    watchexec -w script -w src bash ./run deploy $@
 }
 
 function deploy {
