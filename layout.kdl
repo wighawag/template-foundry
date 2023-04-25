@@ -1,6 +1,6 @@
 layout {
-	pane command="./run"  {
-		args "deploy"
+	pane command="./run" start_suspended=true  {
+		args "watch_deploy"
 	}
 	pane command="./run"  {
 		args "local_node"
