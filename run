@@ -33,7 +33,7 @@ function test {
 }
 
 function watch {
-    watchexec -w script -w src ./Taskfile compile
+    watchexec -w script -w src ./run compile
 }
 
 function deploy {
@@ -123,11 +123,11 @@ function install {
     ./bin/forge-deploy gen-deployer;
 }
 
-function reinstall {
-    uninstall && install;
+function _reinstall {
+    _uninstall && install;
 }
 
-function uninstall {
+function _uninstall {
     rm -Rf lib/forge-deploy || echo "";
     rm -Rf lib/forge-std || echo "";
     rm bin/forge-deploy || echo "";

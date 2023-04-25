@@ -12,16 +12,14 @@ tasks:
     init: |
       ./run install
 
-      # + install watchexe
+      # + install watchexec
       cargo install --root . watchexec-cli;
 
       # move in home for gitpod prebuild
       mv $HOME/.foundry .foundry;
-      mv $HOME/.cargo .cargo;
     command: |
       # move back
       mv .foundry $HOME/.foundry;
-      mv .cargo $HOME/.cargo;
 
       # reexport the foundry PATH
       echo "export PATH=\"\$PATH:$HOME/.foundry/bin\"" >> ~/.bashrc;
