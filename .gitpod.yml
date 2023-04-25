@@ -12,13 +12,13 @@ tasks:
     init: |
       curl -L https://foundry.paradigm.xyz | bash;
       PATH="$PATH:$HOME/.foundry/bin" foundryup;
-      cp -R $HOME/.foundry/bin ./;
-      cargo install --root . just;
+      mv $HOME/.foundry .foundry;
       cargo install --root . ldenv;
       cargo install --root . watchexec-cli;
-      PATH="$PATH:./bin" just reinstall;
+      PATH="$PATH:.foundry/bin" ./run install
     command: |
-      echo "export PATH=\"\$PATH:./bin\"" >> ~/.bashrc;
+      mv ./.foundry $HOME/.foundry;
+      echo "export PATH=\"\$PATH:$HOME/.foundry/bin\"" >> ~/.bashrc;
       source ~/.bashrc;
       anvil
 

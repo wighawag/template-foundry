@@ -1,0 +1,127 @@
+#!/bin/bash
+PATH=./bin:$PATH
+
+# -------------------------------------------------------------------------------------------------
+# TASKS
+# Run them with ./run <tast> [args...]
+# -------------------------------------------------------------------------------------------------
+
+function compile {
+    gen_deployer && forge build
+}
+
+function gen_deployer {
+    forge-deploy gen-deployer
+}
+
+function export {
+    forge-deploy export $1 $2
+}
+
+function sync {
+    forge-deploy sync
+}
+
+function test {
+    gen_deployer && forge test
+}
+
+function watch {
+    watchexec -w script -w src ./Taskfile compile
+}
+
+function deploy {
+    if [[ $1 == void ]]; then
+        ldenv forge @@ $1 script script/Deploy.s.sol --private-key @@DEPLOYER_PRIVATE_KEY "${@:2}";
+    else
+        ldenv forge @@ ${1:-localhost} script script/Deploy.s.sol --private-key @@DEPLOYER_PRIVATE_KEY --rpc-url @@RPC_URL_:DEPLOYMENT_CONTEXT,RPC_URL --broadcast "${@:2}" && forge-deploy sync;
+    fi;
+}
+
+function script {
+    ldenv forge @@ ${1:-localhost} script --private-key @@DEPLOYER_PRIVATE_KEY --rpc-url @@RPC_URL_:DEPLOYMENT_CONTEXT,RPC_URL --broadcast "${@:2}";
+}
+
+function env {
+    ldenv env @@ $1
+}
+
+# -------------------------------------------------------------------------------------------------
+# SCRIPTING
+# -------------------------------------------------------------------------------------------------
+
+function _default {
+    `compgen -A function | while read line; do if [[ $line != _* ]]; then echo $line; fi done | fzf` $@
+}
+
+function help {
+    echo "$0 <task> <args>"
+    echo "Tasks:"
+    compgen -A function | cat -n
+}
+
+TIMEFORMAT="Task completed in %3lR"
+time ${@:-_default}
+
+
+# -------------------------------------------------------------------------------------------------
+# INSTALLATION
+# -------------------------------------------------------------------------------------------------
+function _install_if_missing {
+    if ! foobar_loc="$(type -p $1)" || [[ -z $foobar_loc ]]; then
+        echo "$1 missing, installing...";
+        $2;
+        return $?;
+    fi
+}
+
+function _install_cargo {
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && PATH="$PATH:$HOME/.cargo/bin";
+}
+
+function _install_foundry {
+    curl -L https://foundry.paradigm.xyz | bash && PATH="$PATH:$HOME/.foundry/bin" foundryup;
+}
+function _install_ldenv {
+    cargo install --locked ldenv;
+}
+
+function _install_requirements {
+    _install_if_missing cargo _install_cargo || exit 1;
+    _install_if_missing forge _install_foundry || exit 1;
+    _install_if_missing ldenv _install_ldenv || exit 1;
+}
+
+forge_deploy="0.0.15"
+forge_std="1.5.3"
+function install {
+
+    _install_requirements || exit 1;
+
+    # install forge-std and forge-deploy
+    if [[ $1 == "git" ]]; then
+        forge install foundry-rs/forge-std@v$forge_std && forge install wighawag/forge-deploy@v$forge_deploy || exit 1;
+    else
+        forge install --no-git foundry-rs/forge-std@v$forge_std && forge install --no-git wighawag/forge-deploy@v$forge_deploy || exit 1;
+    fi;
+    
+    # build forge-deploy
+    cd lib/forge-deploy && cargo build --release || exit 1;
+    cd ../..;
+
+    # copy binary
+    mkdir -p bin && cp lib/forge-deploy/target/release/forge-deploy bin/ || exit 1
+    
+    # generate deployer solidity library
+    ./bin/forge-deploy gen-deployer;
+}
+
+function reinstall {
+    uninstall && install;
+}
+
+function uninstall {
+    rm -Rf lib/forge-deploy || echo "";
+    rm -Rf lib/forge-std || echo "";
+    rm bin/forge-deploy || echo "";
+}
