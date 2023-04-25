@@ -10,16 +10,23 @@ vscode:
 tasks:
   - name: Setup, Install & Run Node
     init: |
-      curl -L https://foundry.paradigm.xyz | bash;
-      PATH="$PATH:$HOME/.foundry/bin" foundryup;
-      mv $HOME/.foundry .foundry;
-      cargo install --root . ldenv;
+      ./run install
+
+      # + install watchexe
       cargo install --root . watchexec-cli;
-      PATH="$PATH:.foundry/bin" ./run install
+
+      # move in home for gitpod prebuild
+      mv $HOME/.foundry .foundry;
+      mv $HOME/.cargo .cargo;
     command: |
-      mv ./.foundry $HOME/.foundry;
+      # move back
+      mv .foundry $HOME/.foundry;
+      mv .cargo $HOME/.cargo;
+
+      # reexport the foundry PATH
       echo "export PATH=\"\$PATH:$HOME/.foundry/bin\"" >> ~/.bashrc;
       source ~/.bashrc;
+
       anvil
 
 # Ports to expose on workspace startup

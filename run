@@ -2,6 +2,12 @@
 PATH=./bin:$PATH
 
 # -------------------------------------------------------------------------------------------------
+# PARAMETERS
+# -------------------------------------------------------------------------------------------------
+forge_deploy="0.0.15"
+forge_std="1.5.3"
+
+# -------------------------------------------------------------------------------------------------
 # TASKS
 # Run them with ./run <tast> [args...]
 # -------------------------------------------------------------------------------------------------
@@ -60,10 +66,6 @@ function help {
     compgen -A function | cat -n
 }
 
-TIMEFORMAT="Task completed in %3lR"
-time ${@:-_default}
-
-
 # -------------------------------------------------------------------------------------------------
 # INSTALLATION
 # -------------------------------------------------------------------------------------------------
@@ -80,20 +82,25 @@ function _install_cargo {
 }
 
 function _install_foundry {
-    curl -L https://foundry.paradigm.xyz | bash && PATH="$PATH:$HOME/.foundry/bin" foundryup;
+    curl -L https://foundry.paradigm.xyz | bash || exit 1;
+    PATH="$PATH:$HOME/.foundry/bin";
+    foundryup || exit 1;
 }
 function _install_ldenv {
     cargo install --locked ldenv;
+}
+function _install_fzf {
+    git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf && yes | $HOME/.fzf/install;
 }
 
 function _install_requirements {
     _install_if_missing cargo _install_cargo || exit 1;
     _install_if_missing forge _install_foundry || exit 1;
     _install_if_missing ldenv _install_ldenv || exit 1;
+    _install_if_missing fzf _install_fzf || exit 1;
 }
 
-forge_deploy="0.0.15"
-forge_std="1.5.3"
+
 function install {
 
     _install_requirements || exit 1;
@@ -125,3 +132,10 @@ function uninstall {
     rm -Rf lib/forge-std || echo "";
     rm bin/forge-deploy || echo "";
 }
+
+
+# -------------------------------------------------------------------------------------------------
+# TASK EXECUTION
+# -------------------------------------------------------------------------------------------------
+TIMEFORMAT="Task completed in %3lR"
+time ${@:-_default}
