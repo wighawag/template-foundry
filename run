@@ -113,7 +113,7 @@ function install {
 		forge install $nogit wighawag/forge-deploy@v$forge_deploy || exit 1;
 	fi
     
-     # build forge-deploy
+    # build forge-deploy
 	if [[ ! -f "bin/forge-deploy" ]]; then
 		cd lib/forge-deploy && cargo build --release || exit 1;
 		cd ../..;
