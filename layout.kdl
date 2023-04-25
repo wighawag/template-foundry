@@ -1,0 +1,8 @@
+layout {
+	pane command="./run"  {
+		args "deploy"
+	}
+	pane command="./run"  {
+		args "local_node"
+	}
+}

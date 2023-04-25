@@ -36,16 +36,50 @@ function watch {
     watchexec -w script -w src ./run compile
 }
 
+function watch_deploy {
+    watchexec -w script -w src ./run deploy $@
+}
+
 function deploy {
-    if [[ $1 == void ]]; then
-        ldenv forge @@ $1 script script/Deploy.s.sol --private-key @@DEPLOYER_PRIVATE_KEY "${@:2}";
+	context=${1:-localhost}
+	export=false
+	export_path=""
+	rest="${@:2}"
+	if [[ $1 == "--export" ]]; then
+		context=${3:-localhost}
+		export_path=$2
+		export=true
+		rest="${@:4}"
+	elif [[ $2 == "--export" ]]; then
+		export_path=${3:-localhost}
+		export=true
+		rest="${@:4}"
+	fi
+
+    if [[ $context == void ]]; then
+        ldenv forge @@ $context script script/Deploy.s.sol --private-key @@DEPLOYER_PRIVATE_KEY $rest;
     else
-        ldenv forge @@ ${1:-localhost} script script/Deploy.s.sol --private-key @@DEPLOYER_PRIVATE_KEY --rpc-url @@RPC_URL_:DEPLOYMENT_CONTEXT,RPC_URL --broadcast "${@:2}" && forge-deploy sync;
+        ldenv forge @@ $context script script/Deploy.s.sol --private-key @@DEPLOYER_PRIVATE_KEY --rpc-url @@RPC_URL_:DEPLOYMENT_CONTEXT,RPC_URL --broadcast $rest && forge-deploy sync;
     fi;
+	if $export; then
+		forge-deploy export $context $export_path
+	fi;
 }
 
 function script {
     ldenv forge @@ ${1:-localhost} script --private-key @@DEPLOYER_PRIVATE_KEY --rpc-url @@RPC_URL_:DEPLOYMENT_CONTEXT,RPC_URL --broadcast "${@:2}";
+}
+
+function local_node {
+	rm -Rf deployments/localhost;
+	anvil;
+}
+
+function start {
+    zellij --layout layout.kdl a template-foundry || zellij --layout layout.kdl -s template-foundry
+}
+function stop {
+    zellij kill-session template-foundry
 }
 
 # -------------------------------------------------------------------------------------------------
@@ -139,5 +173,16 @@ function _uninstall {
 # -------------------------------------------------------------------------------------------------
 # TASK EXECUTION
 # -------------------------------------------------------------------------------------------------
+function _CD { # from: https://stackoverflow.com/a/246128
+	SOURCE=${BASH_SOURCE[0]}
+	while [ -L "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+	DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
+	SOURCE=$(readlink "$SOURCE")
+	[[ $SOURCE != /* ]] && SOURCE=$DIR/$SOURCE # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+	done
+	DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
+	cd $DIR
+}
+_CD
 TIMEFORMAT="Task completed in %3lR"
 time ${@:-_default}

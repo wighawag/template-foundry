@@ -14,6 +14,7 @@ tasks:
 
       # + install watchexec
       cargo install --root . watchexec-cli;
+      cargo install --root . zellij;
 
       # move in home for gitpod prebuild
       mv $HOME/.foundry .foundry;
@@ -25,7 +26,7 @@ tasks:
       echo "export PATH=\"\$PATH:$HOME/.foundry/bin\"" >> ~/.bashrc;
       source ~/.bashrc;
 
-      anvil
+      ./run start
 
 # Ports to expose on workspace startup
 ports:
