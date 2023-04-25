@@ -48,12 +48,8 @@ function script {
     ldenv forge @@ ${1:-localhost} script --private-key @@DEPLOYER_PRIVATE_KEY --rpc-url @@RPC_URL_:DEPLOYMENT_CONTEXT,RPC_URL --broadcast "${@:2}";
 }
 
-function env {
-    ldenv env @@ $1
-}
-
 # -------------------------------------------------------------------------------------------------
-# SCRIPTING
+# DEFAULT COMMANDS
 # -------------------------------------------------------------------------------------------------
 
 function _default {
@@ -106,18 +102,24 @@ function install {
     _install_requirements || exit 1;
 
     # install forge-std and forge-deploy
-    if [[ $1 == "git" ]]; then
-        forge install foundry-rs/forge-std@v$forge_std && forge install wighawag/forge-deploy@v$forge_deploy || exit 1;
-    else
-        forge install --no-git foundry-rs/forge-std@v$forge_std && forge install --no-git wighawag/forge-deploy@v$forge_deploy || exit 1;
-    fi;
+    nogit="--no-git"
+	if [[ $1 == "git" ]]; then
+		nogit=""
+	fi
+	if [[ ! -d "lib/forge-std" ]]; then
+		forge install $nogit foundry-rs/forge-std@v$forge_std || exit 1
+	fi
+	if [[ ! -d "lib/forge-deploy" ]]; then
+		forge install $nogit wighawag/forge-deploy@v$forge_deploy || exit 1;
+	fi
     
-    # build forge-deploy
-    cd lib/forge-deploy && cargo build --release || exit 1;
-    cd ../..;
-
-    # copy binary
-    mkdir -p bin && cp lib/forge-deploy/target/release/forge-deploy bin/ || exit 1
+     # build forge-deploy
+	if [[ ! -f "bin/forge-deploy" ]]; then
+		cd lib/forge-deploy && cargo build --release || exit 1;
+		cd ../..;
+		# copy binary
+    	mkdir -p bin && cp lib/forge-deploy/target/release/forge-deploy bin/ || exit 1
+	fi
     
     # generate deployer solidity library
     ./bin/forge-deploy gen-deployer;
