@@ -32,17 +32,19 @@ function test {
     gen_deployer && forge test $@
 }
 
-function watch {
+function watch_compile {
     # bash need to specified for windows
     watchexec -w script -w src bash ./run compile $@
 }
 
 function watch_deploy {
     # bash need to specified for windows
+    # TODO should be -w out but for some reason watchexec do not trigger on changes there
     watchexec -w src -w script bash ./run deploy $@
 }
 
 function deploy {
+    gen_deployer;
 	context=${1:-localhost}
 	export=false
 	export_path=""

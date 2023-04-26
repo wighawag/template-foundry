@@ -25,7 +25,7 @@ See how the [Counter.t.sol](test/Counter.t.sol) test use the deploy script to ge
 ### watch for changes and rebuild automatically
 
 ```bash
-./run watch
+./run watch_compile
 ```
 
 ### deploy your contract
