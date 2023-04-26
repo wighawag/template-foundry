@@ -15,7 +15,7 @@
     "export": "forge-deploy export",
     "deployments:sync": "forge-deploy sync",
     "test": "forge-deploy gen-deployer && forge test",
-    "watch": "as-soon -w script -w src pnpm compile",
+    "watch_compile": "as-soon -w script -w src pnpm compile",
     "watch_deploy": "as-soon -w out pnpm run deploy",
     "deploy": "ldenv -m localhost forge script script/Deploy.s.sol --private-key @@DEPLOYER_PRIVATE_KEY --rpc-url @@RPC_URL_:DEPLOYMENT_CONTEXT,RPC_URL --broadcast ~~ forge-deploy sync ~~ @@",
     "script": "ldenv forge script --private-key @@DEPLOYER_PRIVATE_KEY --rpc-url @@RPC_URL_:DEPLOYMENT_CONTEXT,RPC_URL --broadcast @@",
