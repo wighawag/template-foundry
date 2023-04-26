@@ -10,6 +10,7 @@
   "scripts": {
     "start": "zellij --layout zellij.kdl a template-foundry || zellij --layout zellij.kdl -s template-foundry",
     "stop": "zellij kill-session template-foundry",
+    "start:wezterm": "wezterm --config-file wezterm.lua start $PWD",
     "compile": "./bin/forge-deploy gen-deployer && forge build",
     "forge-deploy": "./bin/forge-deploy",
     "export": "./bin/forge-deploy export",

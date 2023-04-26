@@ -11,15 +11,22 @@ wezterm.on('gui-startup', function(cmd)
   tab:set_title 'template-factory'
   window:set_title 'template-factory'
 
-  local watch_pane = pane:split {
+  local watch_deploy_pane = pane:split {
     args = {'bash', '-i', '-c', 'cd '.. cmd.args[1] .. '; sleep 1; pnpm watch_deploy; bash'},
     direction = 'Bottom'
   }
-  
-  local anvil_pane = watch_pane:split {
+
+  local anvil_pane = watch_deploy_pane:split {
     args= {'bash', '-i', '-c', 'anvil; bash'},
-    direction = 'Left'
+    direction = 'Right'
   }
+
+  local watch_compile_pane = watch_deploy_pane:split {
+    args = {'bash', '-i', '-c', 'cd '.. cmd.args[1] .. '; sleep 1; pnpm watch_compile; bash'},
+    direction = 'Bottom'
+  }
+  
+  
 
   
 end)
