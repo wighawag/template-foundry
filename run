@@ -6,6 +6,7 @@ PATH=./bin:$PATH
 # -------------------------------------------------------------------------------------------------
 forge_deploy="0.0.16"
 forge_std="1.5.3"
+ldenv="0.2.0"
 
 # -------------------------------------------------------------------------------------------------
 # TASKS
@@ -126,7 +127,7 @@ function _install_foundry {
     foundryup || exit 1;
 }
 function _install_ldenv {
-    cargo install --locked ldenv;
+    cargo install --version $ldenv ldenv;
 }
 function _install_fzf {
     git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf && yes | $HOME/.fzf/install;
