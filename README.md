@@ -78,10 +78,26 @@ See how the [Counter.t.sol](test/Counter.t.sol) test use the deploy script to ge
 
 ## Setup
 
-Before getting started we need to execute the following to have the environment ready
+Before getting started we need to execute the following 2 commands to have the environment ready:
+
+1. The first one will install cargo and foundry if there are not already installed.
+
+   it will also install 2 command line utitilies: ldenv (required) and fzf (a useful fuzzy finder used by `./run`)
+
+   ```bash
+   ./run setup_system
+   ```
+
+2. The second one will install the local dependencies
+
+   ```bash
+   ./run install
+   ```
+
+it can be refreshed via (you can also change the version in [./run](./run))
 
 ```bash
-./run install
+./run _reinstall
 ```
 
 > Note: By default this install dependencies without git submodule
@@ -92,3 +108,76 @@ Before getting started we need to execute the following to have the environment 
 ```
 
 See version specified in the [run](./run)
+
+### Windows
+
+Tested from a fresh install of : https://www.microsoft.com/en-US/software-download/windows10ISO on [virtualbox](https://www.virtualbox.org/).
+
+You need to install [Visual Studio Community](https://visualstudio.microsoft.com/free-developer-offers/) on it.
+
+This is the [direct link](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&passive=false&cid=2030) to the Installer (as of today, 2023/04/26) :
+
+You have to install the installer and then install Visual Studio Community with it.
+
+!! **Do not forget to pick the "Desktop Development With C++" in the "Worloads" tab. You do not need anything more.**
+
+Next we want to install bash if you do not have already. For that we are using git which comes with bash.
+
+You can install it via [scoop](https://scoop.sh/).
+
+```bat
+scoop install git
+```
+
+Or you can use the installer from https://gitforwindows.org/.
+
+If you that last option, you can choose "Use Git and optional Unix tolls from the Command Prompt" and you'll have bash accessible from cmd.exe. otherwise you need to use "Git Bash Here"
+
+Anyway after that you should be able to get into a bash shell.
+
+```bat
+bash
+```
+
+There you can clone the repo if you did not already and cd into it.
+
+```bash
+git clone https://github.com/wighawag/template-foundry.git
+cd template-foundry
+```
+
+There you can now install the dependencies using the 2 following command .
+
+1. The first one will install cargo and foundry if there are not already installed. This need to be executed only once.
+
+   it will also install 2 command line utitilies: ldenv (required) and fzf (a useful fuzzy finder used by `./run`)
+
+   ```bash
+   ./run setup_system
+   ```
+
+2. The second one will install the local dependencies
+
+   ```bash
+   ./run install
+   ```
+
+   it can be refreshed via (you can also change the version in [./run](./run))
+
+   ```bash
+   ./run _reinstall
+   ```
+
+This does not install watchexec-cli (that is used for watching file changes) but we can install it now either:
+
+- by downloading the binary from here : https://watchexec.github.io/downloads/watchexec/ and add it to your PATH
+- or by building it from source via `cargo`
+  ```bash
+  cargo install watchexec-cli
+  ```
+
+Once the setup is done, you ll have to leave and reenter bash or execute the following to get the new PATH in
+
+```bash
+source ~/.bashrc
+```

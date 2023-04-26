@@ -133,9 +133,11 @@ function _install_requirements {
 }
 
 
-function install {
-
+function setup_system {
     _install_requirements || exit 1;
+}
+
+function install {
 
     # install forge-std and forge-deploy
     nogit="--no-git"
