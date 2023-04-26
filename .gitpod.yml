@@ -3,6 +3,7 @@ image: gitpod/workspace-full
 tasks:
   - name: Setup, Install & Run Node
     init: |
+      ./run _setup_system
       ./run install
 
       # + install watchexec
