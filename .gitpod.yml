@@ -5,20 +5,19 @@ tasks:
     init: |
       ./setup requirements
       ./setup install
-      pnpm install
+      PATH="$PATH:$HOME/.foundry/bin" pnpm install
 
-      # + install watchexec
-      cargo install --root . watchexec-cli;
-      cargo install --root . zellij;
+      # + install zellij in the /workspace/.cargo/bin as if installed through `cargo install`
+      curl --location https://github.com/zellij-org/zellij/releases/latest/download/zellij-x86_64-unknown-linux-musl.tar.gz | tar -C /workspace/.cargo/bin -xz
 
-      # move in home for gitpod prebuild
+      # move foundry installtion in home for gitpod prebuild
       mv $HOME/.foundry .foundry;
     command: |
-      # move back
+      # move it back out
       mv .foundry $HOME/.foundry;
-
-      # reexport the foundry PATH
+      # + export the foundry PATH
       echo "export PATH=\"\$PATH:$HOME/.foundry/bin\"" >> ~/.bashrc;
+      # injet the PATH
       source ~/.bashrc;
 
       pnpm start

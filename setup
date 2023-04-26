@@ -6,6 +6,7 @@ PATH=./bin:$PATH
 # -------------------------------------------------------------------------------------------------
 forge_deploy="0.0.16"
 forge_std="1.5.3"
+ldenv="0.2.0"
 
 # -------------------------------------------------------------------------------------------------
 # TASKS
@@ -27,6 +28,10 @@ function _install_foundry {
     curl -L https://foundry.paradigm.xyz | bash || exit 1;
     PATH="$PATH:$HOME/.foundry/bin";
     foundryup || exit 1;
+}
+
+function _install_ldenv {
+    cargo install --version $ldenv ldenv;
 }
 
 function _install_requirements {
