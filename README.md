@@ -109,6 +109,18 @@ it can be refreshed via (you can also change the version in [./run](./run))
 
 See version specified in the [run](./run)
 
+### zellij
+
+[zellij(https://zellij.dev/)] is a useful multiplexer (think tmux) for which we have included a [layout file](./zellij.kdl) to get started
+
+Simply run
+
+```
+./run start
+```
+
+And you'll have anvil running as well as watch process deploying contract on src changes
+
 ### Windows
 
 Tested from a fresh install of : https://www.microsoft.com/en-US/software-download/windows10ISO on [virtualbox](https://www.virtualbox.org/).
@@ -184,10 +196,12 @@ source ~/.bashrc
 
 #### wezterm
 
-We recommend you install [wezterm](https://wezfurlong.org/wezterm/install/windows.html).
+on Windows [zellij](https://zellij.dev/) multiplexer is not available
+
+We recommend you install [wezterm](https://wezfurlong.org/wezterm/install/windows.html) instead
 
 With that you can do the following to get started:
 
 ```bash
-pnpm start
+pnpm start:wezterm
 ```

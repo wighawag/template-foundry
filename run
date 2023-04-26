@@ -78,7 +78,7 @@ function local_node {
 }
 
 function start {
-    zellij --layout layout.kdl a template-foundry || zellij --layout layout.kdl -s template-foundry
+    zellij --layout zellij.kdl a template-foundry || zellij --layout zellij.kdl -s template-foundry
 }
 function stop {
     zellij kill-session template-foundry
