@@ -39,7 +39,7 @@ function watch {
 
 function watch_deploy {
     # bash need to specified for windows
-    watchexec -w out bash ./run deploy $@
+    watchexec -w src -w script bash ./run deploy $@
 }
 
 function deploy {
