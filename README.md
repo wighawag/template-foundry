@@ -113,13 +113,19 @@ See version specified in the [run](./run)
 
 [zellij(https://zellij.dev/)] is a useful multiplexer (think tmux) for which we have included a [layout file](./zellij.kdl) to get started
 
-Simply run
+Once installed simply run
 
-```
+```bash
 ./run start
 ```
 
 And you'll have anvil running as well as watch process deploying contract on src changes
+
+if you want to try zellij without install try this :
+
+```bash
+bash <(curl -L zellij.dev/launch) --layout zellij.kdl
+```
 
 ### Windows
 
