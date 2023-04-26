@@ -4,7 +4,7 @@ tasks:
   - name: Setup, Install & Run Node
     init: |
       ./run _setup_system
-      ./run install
+      PATH="$PATH:$HOME/.foundry/bin" ./run install
 
       # + install watchexec
       cargo install --root . watchexec-cli;
