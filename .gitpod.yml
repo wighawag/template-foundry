@@ -9,6 +9,7 @@ tasks:
       # + install watchexec and zellij in the /workspace/.cargo/bin as if installed through `cargo install`
       curl --location https://github.com/watchexec/watchexec/releases/download/v1.22.2/watchexec-1.22.2-x86_64-unknown-linux-musl.tar.xz | tar -C . -Jx
       mv watchexec-1.22.2-x86_64-unknown-linux-musl/watchexec /workspace/.cargo/bin/
+      m -Rf watchexec-1.22.2-x86_64-unknown-linux-musl;
       curl --location https://github.com/zellij-org/zellij/releases/latest/download/zellij-x86_64-unknown-linux-musl.tar.gz | tar -C /workspace/.cargo/bin -xz
 
       # move in home for gitpod prebuild
