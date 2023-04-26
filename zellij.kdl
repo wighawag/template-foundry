@@ -3,9 +3,9 @@ layout {
 		pane {}
 		pane split_direction="vertical" {
 			pane command="bash" {
-				args "-c" "sleep 1; ./run watch_deploy"
+				args "-c" "sleep 1; pnpm watch_deploy"
 			}
-			pane command="./run"  {
+			pane command="pnpm"  {
 				args "local_node"
 			}
 		}

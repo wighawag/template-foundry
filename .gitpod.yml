@@ -10,7 +10,9 @@ vscode:
 tasks:
   - name: Setup, Install & Run Node
     init: |
-      ./run install
+      ./setup requirements
+      ./setup install
+      pnpm install
 
       # + install watchexec
       cargo install --root . watchexec-cli;
@@ -26,7 +28,7 @@ tasks:
       echo "export PATH=\"\$PATH:$HOME/.foundry/bin\"" >> ~/.bashrc;
       source ~/.bashrc;
 
-      ./run start
+      pnpm start
 
 # Ports to expose on workspace startup
 ports:

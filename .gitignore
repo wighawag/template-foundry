@@ -28,3 +28,7 @@ docs/
 # if you use git and want to make use of the submodule
 # delete that line and execute `just reinstall git`
 /lib
+
+
+# npm
+node_modules/

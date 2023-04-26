@@ -11,13 +11,13 @@ Once your environment is setup (see [setup](#setup)), you can do the following (
 ### Compile your contracts
 
 ```bash
-./run compile
+pnpm compile
 ```
 
 ### Test your contracts
 
 ```bash
-./run test
+pnpm test
 ```
 
 See how the [Counter.t.sol](test/Counter.t.sol) test use the deploy script to get setup, removing the need to duplicate the deployment procedure.
@@ -25,7 +25,7 @@ See how the [Counter.t.sol](test/Counter.t.sol) test use the deploy script to ge
 ### watch for changes and rebuild automatically
 
 ```bash
-./run watch
+pnpm watch
 ```
 
 ### deploy your contract
@@ -33,7 +33,7 @@ See how the [Counter.t.sol](test/Counter.t.sol) test use the deploy script to ge
 - in memory only:
 
   ```bash
-  ./run deploy void
+  pnpm run deploy void
   ```
 
 - on localhost
@@ -41,7 +41,7 @@ See how the [Counter.t.sol](test/Counter.t.sol) test use the deploy script to ge
   This assume you have anvil running : `anvil`
 
   ```bash
-  ./run deploy localhost
+  pnpm run deploy localhost
   ```
 
 - on a network of your choice
@@ -49,65 +49,67 @@ See how the [Counter.t.sol](test/Counter.t.sol) test use the deploy script to ge
   Just make sure you have `RPC_URL` or `RPC_URL_<network>` set for it either in `env.local` or `.env.<network>.local`
 
   ```bash
-  ./run deploy <network>
+  pnpm run deploy <network>
   ```
 
 ### execute script on the deployed contract
 
 ```bash
-./run script localhost script/UpdateCounter.s.sol --sig 'run(uint256)' 42;
+pnpm script localhost script/UpdateCounter.s.sol --sig 'run(uint256)' 42;
 ```
 
 ## requirements:
 
-- cargo (for dependencies and tools) : https://www.rust-lang.org/learn/get-started
+- node : https://nodejs.org/en
 
-- ldenv (a env loader) : https://crates.io/crates/ldenv
+- pnpm:
 
-- watchexec-cli (optional, for watch command) :
-
-  Checkout the instalation procedure here : https://github.com/watchexec/watchexec
-
-  You can alternatively install watchexec-cli from source but this will take sone time
+  With node (see just above) you can install it via
 
   ```bash
-  cargo install --locked watchexec-cli;
+  npm i -g pnpm
   ```
+
+- cargo (for dependencies and tools) : https://www.rust-lang.org/learn/get-started
 
 - foundry (for contracts) : https://getfoundry.sh/
 
 ## Setup
 
-Before getting started we need to execute the following 2 commands to have the environment ready:
+Before getting started we need to execute the following 3 commands to have the environment ready:
 
-1. The first one will install cargo and foundry if there are not already installed.
-
-   it will also install 2 command line utitilies: ldenv (required) and fzf (a useful fuzzy finder used by `./run`)
+1. assuming you already have node installed
 
    ```bash
-   ./run _setup_system
+   pnpm i
    ```
 
-2. The second one will install the local dependencies
+1. install cargo and foundry if there are not already installed.
 
    ```bash
-   ./run install
+   ./setup system
    ```
 
-it can be refreshed via (you can also change the version in [./run](./run))
+1. install the local dependencies
+
+   ```bash
+   ./setup install
+   ```
+
+it can be refreshed via (you can also change the version in [./setup](./setup))
 
 ```bash
-./run _reinstall
+./setup reinstall
 ```
 
 > Note: By default this install dependencies without git submodule
 > If you use git and want to make use of the submodule. Use the following command instead:
 
 ```bash
-./run install git
+./setup install git
 ```
 
-See version specified in the [run](./run)
+See version specified in the [setup](./setup)
 
 ### zellij
 
@@ -116,7 +118,7 @@ See version specified in the [run](./run)
 Once installed simply run
 
 ```bash
-./run start
+pnpm start
 ```
 
 And you'll have anvil running as well as watch process deploying contract on src changes
@@ -166,33 +168,29 @@ cd template-foundry
 
 There you can now install the dependencies using the 2 following command .
 
-1. The first one will install cargo and foundry if there are not already installed. This need to be executed only once.
-
-   it will also install 2 command line utitilies: ldenv (required) and fzf (a useful fuzzy finder used by `./run`)
+1. assuming you already have node installed (see general instruction above)
 
    ```bash
-   ./run _setup_system
+   pnpm i
    ```
 
-2. The second one will install the local dependencies
+1. install cargo and foundry if there are not already installed.
 
    ```bash
-   ./run install
+   ./setup system
    ```
 
-   it can be refreshed via (you can also change the version in [./run](./run))
+1. install the local dependencies
 
    ```bash
-   ./run _reinstall
+   ./setup install
    ```
 
-This does not install watchexec-cli (that is used for watching file changes) but we can install it now either:
+   it can be refreshed via (you can also change the version in [./setup](./setup))
 
-- by downloading the binary from here : https://watchexec.github.io/downloads/watchexec/ and add it to your PATH
-- or by building it from source via `cargo`
-  ```bash
-  cargo install watchexec-cli
-  ```
+   ```bash
+   ./setup reinstall
+   ```
 
 Once the setup is done, you ll have to leave and reenter bash or execute the following to get the new PATH in
 

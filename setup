@@ -1,0 +1,103 @@
+#!/bin/bash
+PATH=./bin:$PATH
+
+# -------------------------------------------------------------------------------------------------
+# PARAMETERS
+# -------------------------------------------------------------------------------------------------
+forge_deploy="0.0.16"
+forge_std="1.5.3"
+
+# -------------------------------------------------------------------------------------------------
+# Tasks
+# -------------------------------------------------------------------------------------------------
+function _install_if_missing {
+    if ! foobar_loc="$(type -p $1)" || [[ -z $foobar_loc ]]; then
+        echo "$1 missing, installing...";
+        $2;
+        return $?;
+    fi
+}
+
+function _install_cargo {
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && PATH="$PATH:$HOME/.cargo/bin";
+}
+
+function _install_foundry {
+    curl -L https://foundry.paradigm.xyz | bash || exit 1;
+    PATH="$PATH:$HOME/.foundry/bin";
+    foundryup || exit 1;
+}
+
+function _install_requirements {
+    _install_if_missing cargo _install_cargo || exit 1;
+    _install_if_missing forge _install_foundry || exit 1;
+}
+
+
+function requirements {
+    _install_requirements || exit 1;
+}
+
+function install {
+
+    # install forge-std and forge-deploy
+    nogit="--no-git"
+	if [[ $1 == "git" ]]; then
+		nogit=""
+	fi
+	if [[ ! -d "lib/forge-std" ]]; then
+		forge install $nogit foundry-rs/forge-std@v$forge_std || exit 1
+	fi
+	if [[ ! -d "lib/forge-deploy" ]]; then
+		forge install $nogit wighawag/forge-deploy@v$forge_deploy || exit 1;
+	fi
+    
+    # build forge-deploy
+	if [[ ! -f "bin/forge-deploy" ]]; then
+		cd lib/forge-deploy && cargo build --release || exit 1;
+		cd ../..;
+		# copy binary
+    	mkdir -p bin && cp lib/forge-deploy/target/release/forge-deploy bin/ || exit 1
+	fi
+    
+    # generate deployer solidity library
+    ./bin/forge-deploy gen-deployer;
+}
+
+function reinstall {
+    _uninstall && install;
+}
+
+function uninstall {
+    rm -Rf lib/forge-deploy || echo "";
+    rm -Rf lib/forge-std || echo "";
+    rm bin/forge-deploy || echo "";
+}
+
+
+# -------------------------------------------------------------------------------------------------
+# DEFAULT COMMANDS
+# -------------------------------------------------------------------------------------------------
+
+function help {
+    echo "$0 <task> <args>"
+    echo "Tasks:"
+    compgen -A function | while read line; do if [[ $line != _* ]]; then echo $line; fi done | cat -n
+}
+
+# -------------------------------------------------------------------------------------------------
+# TASK EXECUTION
+# -------------------------------------------------------------------------------------------------
+function _CD { # from: https://stackoverflow.com/a/246128
+	SOURCE=${BASH_SOURCE[0]}
+	while [ -L "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+	DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
+	SOURCE=$(readlink "$SOURCE")
+	[[ $SOURCE != /* ]] && SOURCE=$DIR/$SOURCE # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+	done
+	DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
+	cd $DIR
+}
+_CD
+TIMEFORMAT="Task completed in %3lR"
+time ${@:-help}

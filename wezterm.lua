@@ -12,7 +12,7 @@ wezterm.on('gui-startup', function(cmd)
   window:set_title 'template-factory'
 
   local watch_pane = pane:split {
-    args = {'bash', '-i', '-c', 'cd '.. cmd.args[1] .. '; sleep 1; bash run watch_deploy; bash'},
+    args = {'bash', '-i', '-c', 'cd '.. cmd.args[1] .. '; sleep 1; pnpm watch_deploy; bash'},
     direction = 'Bottom'
   }
   
