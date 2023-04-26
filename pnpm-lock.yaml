@@ -2,8 +2,8 @@ lockfileVersion: '6.0'
 
 devDependencies:
   as-soon:
-    specifier: ^0.0.2
-    version: 0.0.2
+    specifier: ^0.0.3
+    version: 0.0.3
   ldenv:
     specifier: ^0.2.1
     version: 0.2.1
@@ -21,8 +21,8 @@ packages:
       node-gyp-build: 4.6.0
     dev: true
 
-  /as-soon@0.0.2:
-    resolution: {integrity: sha512-NR7WBoXKIjhel06XTZ/1Gp6hPYmKVvcOEdnPG7JNjGxyx9e8/lNQ1U5SY9UX3K9QVusGX/BJgPYzHyRpP/mp5g==}
+  /as-soon@0.0.3:
+    resolution: {integrity: sha512-YcZuZf3TKLafxXbkss6sWEbEcQ9hsROJuuiMntJNCQnfMi0U8z6yh4k4FceDrfqdSe1JBMQ7zkWag5G4UmmeIQ==}
     hasBin: true
     dependencies:
       '@parcel/watcher': 2.1.0
