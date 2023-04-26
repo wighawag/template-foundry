@@ -6,10 +6,10 @@ tasks:
       ./run _setup_system
       PATH="$PATH:$HOME/.foundry/bin" ./run install
 
-      # + install watchexec and zellij
+      # + install watchexec and zellij in the /workspace/.cargo/bin as if installed through `cargo install`
       curl --location https://github.com/watchexec/watchexec/releases/download/v1.22.2/watchexec-1.22.2-x86_64-unknown-linux-musl.tar.xz | tar -C . -Jx
-      mv watchexec-1.22.2-x86_64-unknown-linux-musl/watchexec $HOME/.cargo/bin/
-      curl --location https://github.com/zellij-org/zellij/releases/latest/download/zellij-x86_64-unknown-linux-musl.tar.gz | tar -C $HOME/.cargo/bin -xz
+      mv watchexec-1.22.2-x86_64-unknown-linux-musl/watchexec /workspace/.cargo/bin/
+      curl --location https://github.com/zellij-org/zellij/releases/latest/download/zellij-x86_64-unknown-linux-musl.tar.gz | tar -C /workspace/.cargo/bin -xz
 
       # move in home for gitpod prebuild
       mv $HOME/.foundry .foundry;
