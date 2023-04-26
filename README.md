@@ -85,7 +85,7 @@ Before getting started we need to execute the following 2 commands to have the e
    it will also install 2 command line utitilies: ldenv (required) and fzf (a useful fuzzy finder used by `./run`)
 
    ```bash
-   ./run setup_system
+   ./run _setup_system
    ```
 
 2. The second one will install the local dependencies
@@ -153,7 +153,7 @@ There you can now install the dependencies using the 2 following command .
    it will also install 2 command line utitilies: ldenv (required) and fzf (a useful fuzzy finder used by `./run`)
 
    ```bash
-   ./run setup_system
+   ./run _setup_system
    ```
 
 2. The second one will install the local dependencies
@@ -180,4 +180,14 @@ Once the setup is done, you ll have to leave and reenter bash or execute the fol
 
 ```bash
 source ~/.bashrc
+```
+
+#### wezterm
+
+We recommend you install [wezterm](https://wezfurlong.org/wezterm/install/windows.html).
+
+With that you can do the following to get started:
+
+```bash
+pnpm start
 ```

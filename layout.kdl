@@ -1,8 +1,13 @@
 layout {
-	pane command="./run" start_suspended=true  {
-		args "watch_deploy"
-	}
-	pane command="./run"  {
-		args "local_node"
+	pane {
+		pane {}
+		pane split_direction="vertical" {
+			pane command="bash" {
+				args "-c" "sleep 1; ./run watch_deploy"
+			}
+			pane command="./run"  {
+				args "local_node"
+			}
+		}
 	}
 }

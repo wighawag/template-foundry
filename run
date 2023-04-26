@@ -84,6 +84,11 @@ function stop {
     zellij kill-session template-foundry
 }
 
+function start:wezterm {
+    wezterm --config-file wezterm.lua start `pwd`
+}
+
+
 # -------------------------------------------------------------------------------------------------
 # DEFAULT COMMANDS
 # -------------------------------------------------------------------------------------------------
@@ -133,7 +138,7 @@ function _install_requirements {
 }
 
 
-function setup_system {
+function _setup_system {
     _install_requirements || exit 1;
 }
 
