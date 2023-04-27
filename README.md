@@ -162,36 +162,18 @@ git clone https://github.com/wighawag/template-foundry.git
 cd template-foundry
 ```
 
-There you can now install the dependencies using the 2 following command .
+Then you can install the dependencies as stated above:
 
-1. assuming you already have node installed (see general instruction above)
+- [nodejs](https://nodejs.org/en)
 
-   ```bash
-   pnpm i
-   ```
+- [pnpm](https://pnpm.io/) (can be installed via: `npm i -g pnpm`)
 
-1. install cargo and foundry if there are not already installed.
+- [foundry](https://getfoundry.sh/) (can be installed via: `curl -L https://foundry.paradigm.xyz | bash && source $HOME/.bashrc && foundryup`)
 
-   ```bash
-   ./setup system
-   ```
-
-1. install the local dependencies
-
-   ```bash
-   ./setup install
-   ```
-
-   it can be refreshed via (you can also change the version in [./setup](./setup))
-
-   ```bash
-   ./setup reinstall
-   ```
-
-Once the setup is done, you ll have to leave and reenter bash or execute the following to get the new PATH in
+Finally you can now install the local dependencies:
 
 ```bash
-source ~/.bashrc
+pnpm i
 ```
 
 #### wezterm
