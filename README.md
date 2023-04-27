@@ -12,7 +12,7 @@ You need to have these installed
 
 - [pnpm](https://pnpm.io/) (can be installed via: `npm i -g pnpm`)
 
-- [foundry](https://getfoundry.sh/) (can be installed via: `curl -L https://foundry.paradigm.xyz | bash`)
+- [foundry](https://getfoundry.sh/) (can be installed via: `curl -L https://foundry.paradigm.xyz | bash && source $HOME/.bashrc && foundryup`)
 
 Then you need to install the local dependencies with the following command:
 
