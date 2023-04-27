@@ -4,6 +4,7 @@ tasks:
   - name: Setup, Install & Run Node
     init: |
       curl -L https://foundry.paradigm.xyz | bash;
+      $HOME/.foundry/bin/foundryup
       PATH="$PATH:$HOME/.foundry/bin" pnpm install
 
       # + install zellij in the /workspace/.cargo/bin as if installed through `cargo install`
