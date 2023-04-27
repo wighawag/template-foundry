@@ -4,21 +4,9 @@ A template to build, deploy and test smart contracts using [foundry-rs/forge](ht
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/wighawag/template-foundry)
 
-## How to use ?
+## How to use?
 
-You need to have these installed
-
-- [nodejs](https://nodejs.org/en)
-
-- [pnpm](https://pnpm.io/) (can be installed via: `npm i -g pnpm`)
-
-- [foundry](https://getfoundry.sh/) (can be installed via: `curl -L https://foundry.paradigm.xyz | bash && source $HOME/.bashrc && foundryup`)
-
-Then you need to install the local dependencies with the following command:
-
-```bash
-pnpm i;
-```
+We are assuming here that you already setup your env as specified in the [initial setup section](#initial-setup)
 
 ### Compile your contracts
 
@@ -70,43 +58,6 @@ pnpm watch_compile
 pnpm script localhost script/UpdateCounter.s.sol --sig 'run(uint256)' 42;
 ```
 
-## Setup
-
-Before getting started we need to execute the following 3 commands to have the environment ready:
-
-1. assuming you already have node installed
-
-   ```bash
-   pnpm i
-   ```
-
-1. install cargo and foundry if there are not already installed.
-
-   ```bash
-   ./setup system
-   ```
-
-1. install the local dependencies
-
-   ```bash
-   ./setup install
-   ```
-
-it can be refreshed via (you can also change the version in [./setup](./setup))
-
-```bash
-./setup reinstall
-```
-
-> Note: By default this install dependencies without git submodule
-> If you use git and want to make use of the submodule. Use the following command instead:
-
-```bash
-./setup install git
-```
-
-See version specified in the [setup](./setup)
-
 ### zellij
 
 [zellij(https://zellij.dev/)] is a useful multiplexer (think tmux) for which we have included a [layout file](./zellij.kdl) to get started
@@ -123,6 +74,22 @@ if you want to try zellij without install try this :
 
 ```bash
 bash <(curl -L zellij.dev/launch) --layout zellij.kdl
+```
+
+## Initial Setup
+
+You need to have these installed
+
+- [nodejs](https://nodejs.org/en)
+
+- [pnpm](https://pnpm.io/) (can be installed via: `npm i -g pnpm`)
+
+- [foundry](https://getfoundry.sh/) (can be installed via: `curl -L https://foundry.paradigm.xyz | bash && source $HOME/.bashrc && foundryup`)
+
+Then you need to install the local dependencies with the following command:
+
+```bash
+pnpm i;
 ```
 
 ### Windows
@@ -162,19 +129,7 @@ git clone https://github.com/wighawag/template-foundry.git
 cd template-foundry
 ```
 
-Then you can install the dependencies as stated above:
-
-- [nodejs](https://nodejs.org/en)
-
-- [pnpm](https://pnpm.io/) (can be installed via: `npm i -g pnpm`)
-
-- [foundry](https://getfoundry.sh/) (can be installed via: `curl -L https://foundry.paradigm.xyz | bash && source $HOME/.bashrc && foundryup`)
-
-Finally you can now install the local dependencies:
-
-```bash
-pnpm i
-```
+Then you can install the dependencies as stated in the [initial setup section](#initial-setup)
 
 #### wezterm
 
