@@ -3,8 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "files": [
+    "deployments",
+    "src"
+  ],
   "devDependencies": {
-    "as-soon": "^0.0.3",
+    "as-soon": "^0.0.4",
     "forge-deploy": "^0.0.20",
     "ldenv": "^0.2.1",
     "set-defaults": "^0.0.1"
