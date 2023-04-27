@@ -3,8 +3,7 @@ image: gitpod/workspace-full
 tasks:
   - name: Setup, Install & Run Node
     init: |
-      ./setup requirements
-      PATH="$PATH:$HOME/.foundry/bin" ./setup install
+      curl -L https://foundry.paradigm.xyz | bash;
       PATH="$PATH:$HOME/.foundry/bin" pnpm install
 
       # + install zellij in the /workspace/.cargo/bin as if installed through `cargo install`
