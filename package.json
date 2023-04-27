@@ -9,12 +9,12 @@
   ],
   "devDependencies": {
     "as-soon": "^0.0.4",
-    "forge-deploy": "^0.0.20",
+    "forge-deploy": "^0.0.21",
     "ldenv": "^0.2.1",
     "set-defaults": "^0.0.1"
   },
   "scripts": {
-    "prepare": "set-defaults .vscode && forge install --no-git foundry-rs/forge-std@v1.5.3 || echo ''",
+    "prepare": "set-defaults .vscode && mkdir lib/forge-std || forge install --no-git foundry-rs/forge-std@v1.5.3 || echo ''",
     "start": "zellij --layout zellij.kdl a template-foundry || zellij --layout zellij.kdl -s template-foundry",
     "stop": "zellij kill-session template-foundry",
     "start:wezterm": "wezterm --config-file wezterm.lua start $PWD",
