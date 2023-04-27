@@ -5,8 +5,8 @@ devDependencies:
     specifier: ^0.0.4
     version: 0.0.4
   forge-deploy:
-    specifier: ^0.0.21
-    version: 0.0.21
+    specifier: ^0.0.23
+    version: 0.0.23
   ldenv:
     specifier: ^0.2.1
     version: 0.2.1
@@ -66,8 +66,8 @@ packages:
       to-regex-range: 5.0.1
     dev: true
 
-  /forge-deploy@0.0.21:
-    resolution: {integrity: sha512-h/gnIKSrPvn3QHNbfBMHYU9AaxeHnMgI8yYYA0OiRMk7msjNZ8Vb4oXt8vig7hR1GPZHfqnz3HLiA0I2vBIf1g==}
+  /forge-deploy@0.0.23:
+    resolution: {integrity: sha512-TVVzYbHQ1eYGQ/tJoV5nS+Zfy8fxJEQFWtnTPrte4eLBSHuSWuHYnweHaQZb8FpgRpVr7JDNdsNbe2PfbuRxhg==}
     hasBin: true
     requiresBuild: true
     dev: true
