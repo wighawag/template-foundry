@@ -9,7 +9,7 @@
   ],
   "devDependencies": {
     "as-soon": "^0.0.4",
-    "forge-deploy": "^0.0.24",
+    "forge-deploy": "^0.0.27",
     "ldenv": "^0.2.1",
     "set-defaults": "^0.0.1"
   },
