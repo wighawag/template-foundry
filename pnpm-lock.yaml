@@ -4,9 +4,15 @@ devDependencies:
   as-soon:
     specifier: ^0.0.3
     version: 0.0.3
+  forge-deploy:
+    specifier: ^0.0.17
+    version: 0.0.17
   ldenv:
     specifier: ^0.2.1
     version: 0.2.1
+  set-defaults:
+    specifier: ^0.0.1
+    version: 0.0.1
 
 packages:
 
@@ -38,6 +44,11 @@ packages:
       fill-range: 7.0.1
     dev: true
 
+  /commander@10.0.1:
+    resolution: {integrity: sha512-y4Mg2tXshplEbSGzx7amzPwKKOCGuoSRP/CjEdwwk0FOGlUbq6lKuoyDZTNZkmxHdJtp54hdfY/JUrdL7Xfdug==}
+    engines: {node: '>=14'}
+    dev: true
+
   /dotenv-expand@10.0.0:
     resolution: {integrity: sha512-GopVGCpVS1UKH75VKHGuQFqS1Gusej0z4FyQkPdwjil2gNIv+LNsqBlboOzpJFZKVT95GkCyWJbBSdFEFUWI2A==}
     engines: {node: '>=12'}
@@ -53,6 +64,11 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       to-regex-range: 5.0.1
+    dev: true
+
+  /forge-deploy@0.0.17:
+    resolution: {integrity: sha512-6HhxaqOMaSCd7d78qkjsae4KpN2HTxrcyXFoazlAihsnhqTmDwJ6oHYEcNZA7TjK6arsCfcmUKukU6xrMXBAbw==}
+    requiresBuild: true
     dev: true
 
   /is-extglob@2.1.1:
@@ -108,6 +124,13 @@ packages:
   /picomatch@2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
+    dev: true
+
+  /set-defaults@0.0.1:
+    resolution: {integrity: sha512-HXaanWD2lh36xRErVIwwVvzoAfG8EJTMid3gWieSX1p9VO4KkyRQ97zsonNuE9oIuiTlpThBKUpGUyi85JSzBA==}
+    hasBin: true
+    dependencies:
+      commander: 10.0.1
     dev: true
 
   /to-regex-range@5.0.1:

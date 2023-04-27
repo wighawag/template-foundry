@@ -6,7 +6,19 @@ A template to build, deploy and test smart contracts using [foundry-rs/forge](ht
 
 ## How to use ?
 
-Once your environment is setup (see [setup](#setup)), you can do the following (assuming you have bash/zsh)
+You need to have these installed
+
+- [nodejs](https://nodejs.org/en)
+
+- [pnpm](https://pnpm.io/) (can be installed via: `npm i -g pnpm`)
+
+- [foundry](https://getfoundry.sh/) (can be installed via: `curl -L https://foundry.paradigm.xyz | bash`)
+
+Then you need to install the local dependencies with the following command:
+
+```bash
+pnpm i;
+```
 
 ### Compile your contracts
 
@@ -57,22 +69,6 @@ pnpm watch_compile
 ```bash
 pnpm script localhost script/UpdateCounter.s.sol --sig 'run(uint256)' 42;
 ```
-
-## requirements:
-
-- node : https://nodejs.org/en
-
-- pnpm:
-
-  With node (see just above) you can install it via
-
-  ```bash
-  npm i -g pnpm
-  ```
-
-- cargo (for dependencies and tools) : https://www.rust-lang.org/learn/get-started
-
-- foundry (for contracts) : https://getfoundry.sh/
 
 ## Setup
 

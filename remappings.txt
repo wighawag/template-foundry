@@ -1,2 +1,2 @@
 forge-std/=lib/forge-std/src/
-forge-deploy/=lib/forge-deploy/contracts/
+forge-deploy/=node_modules/forge-deploy/contracts/
