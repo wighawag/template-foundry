@@ -5,8 +5,8 @@ devDependencies:
     specifier: ^0.0.4
     version: 0.0.4
   forge-deploy:
-    specifier: ^0.0.27-rc.6
-    version: 0.0.27
+    specifier: 0.0.27-rc.6
+    version: 0.0.27-rc.6
   ldenv:
     specifier: ^0.2.1
     version: 0.2.1
@@ -104,8 +104,8 @@ packages:
         optional: true
     dev: true
 
-  /forge-deploy@0.0.27:
-    resolution: {integrity: sha512-xMdnfNx9ZRO91RFYuwugfTr0EJC2xyp/8SM6YpkxXgex/qMYAc/4adWO44r6t9wAfEtqPgozzgpx6RScA94EhA==}
+  /forge-deploy@0.0.27-rc.6:
+    resolution: {integrity: sha512-qItEu0rqNbj7g1IGh3qNevfFZfP45M8gf7HABQB3uIOewE2tASHlmO7CP7CL64u+ph/eUlkyL9TRBfGOMnC5GA==}
     hasBin: true
     requiresBuild: true
     dependencies:
