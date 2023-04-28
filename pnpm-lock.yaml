@@ -5,7 +5,7 @@ devDependencies:
     specifier: ^0.0.4
     version: 0.0.4
   forge-deploy:
-    specifier: ^0.0.27
+    specifier: ^0.0.27-rc.6
     version: 0.0.27
   ldenv:
     specifier: ^0.2.1
