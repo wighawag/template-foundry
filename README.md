@@ -1,5 +1,9 @@
 # template-foundry
 
+<a href="https://asciinema.org/a/jW7jmJhK7NTjGf3isEKrZ8vop" target="_blank"><img src="./asciicast.svg" /></a>
+
+<!-- ![](https://asciinema.org/a/jW7jmJhK7NTjGf3isEKrZ8vop.svg) -->
+
 A template to build, deploy and test smart contracts using [foundry-rs/forge](https://github.com/foundry-rs/foundry) and [forge-deploy](https://github.com/wighawag/forge-deploy)
 
 It uses npm to make it easy to integrate in a full stack monorepo. You can find another version of the repo, which uses cargo and bash instead [here](https://github.com/wighawag/template-foundry/tree/bash)
@@ -87,7 +91,6 @@ You need to have these installed
   For windows (see more info [here](#windows)), you will need to select the option "Automatically install the necessary tools....". Note that process will open a powershell window and will take a while (it does not even show progress).
 
   This step will allow foundry/forge to work
-
 
 - [pnpm](https://pnpm.io/)
 
