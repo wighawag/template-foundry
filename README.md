@@ -2,6 +2,8 @@
 
 A template to build, deploy and test smart contracts using [foundry-rs/forge](https://github.com/foundry-rs/foundry) and [forge-deploy](https://github.com/wighawag/forge-deploy)
 
+It uses npm to make it easy to integrate in a full stack monorepo. You can find another version of the repo, which uses cargo and bash instead [here](https://github.com/wighawag/template-foundry/tree/bash)
+
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/wighawag/template-foundry)
 
 ## How to use?
@@ -84,13 +86,15 @@ You need to have these installed
 
 - [pnpm](https://pnpm.io/) (can be installed via: `npm i -g pnpm`)
 
-- [foundry](https://getfoundry.sh/) (can be installed via: `curl -L https://foundry.paradigm.xyz | bash && source $HOME/.bashrc && foundryup`)
+- [foundry](https://getfoundry.sh/) (can be installed via: `curl -L https://foundry.paradigm.xyz | bash;` and `foundryup`)
 
 Then you need to install the local dependencies with the following command:
 
 ```bash
 pnpm i;
 ```
+
+We also recommend to install [zellij(https://zellij.dev/)] to have your dev env setup in one go via `pnpm start`
 
 ### Windows
 
