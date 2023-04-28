@@ -109,10 +109,10 @@ You need to have these installed
 Then you need to install the local dependencies with the following command:
 
 ```bash
-pnpm i;
+pnpm i
 ```
 
-We also recommend to install [zellij(https://zellij.dev/)] to have your dev env setup in one go via `pnpm start`
+We also recommend to install [zellij](https://zellij.dev/) to have your dev env setup in one go via `pnpm start`
 
 ### Windows
 
