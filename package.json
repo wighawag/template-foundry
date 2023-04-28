@@ -17,7 +17,7 @@
     "prepare": "set-defaults .vscode && forge install --no-git foundry-rs/forge-std@v1.5.3 || echo ''",
     "start": "zellij --layout zellij.kdl a template-foundry || zellij --layout zellij.kdl -s template-foundry",
     "stop": "zellij kill-session template-foundry",
-    "start:wezterm": "wezterm --config-file wezterm.lua start $PWD",
+    "start:wezterm": "wezterm --config-file wezterm.lua",
     "compile": "forge-deploy gen-deployer && forge build",
     "forge-deploy": "forge-deploy",
     "export": "forge-deploy export",
