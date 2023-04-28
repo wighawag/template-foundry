@@ -1,16 +1,18 @@
 layout {
 	pane {
-		pane command="bash" {}
+		pane name="shell" command="bash" {
+			args "-c" "${SHELL-bash}"
+		}
 		pane split_direction="vertical" {
 			pane {
-				pane command="bash" {
+				pane name="watch & deploy" command="bash" {
 					args "-c" "sleep 1; pnpm watch_deploy"
 				}
-				pane command="pnpm" {
+				pane name="watch & compile" command="pnpm" {
 					args "watch_compile"
 				}
 			}
-			pane command="pnpm"  {
+			pane name="local node" command="pnpm"  {
 				args "local_node"
 			}
 		}
