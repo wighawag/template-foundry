@@ -74,12 +74,18 @@ Once installed simply run
 pnpm start
 ```
 
-And you'll have anvil running as well as watch process deploying contract on src changes
+And you'll have anvil running as well as watch process executing tests on changes
 
 if you want to try zellij without install try this :
 
 ```bash
 bash <(curl -L zellij.dev/launch) --layout zellij.kdl
+```
+
+In the shell in the upper pane, you can deploy your contract via
+
+```bash
+pnpm run deploy
 ```
 
 ## Initial Setup
