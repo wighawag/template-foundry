@@ -66,7 +66,7 @@ pnpm script localhost script/UpdateCounter.s.sol --sig 'run(uint256)' 42;
 
 ### zellij
 
-[zellij(https://zellij.dev/)] is a useful multiplexer (think tmux) for which we have included a [layout file](./zellij.kdl) to get started
+[zellij](https://zellij.dev/) is a useful multiplexer (think tmux) for which we have included a [layout file](./zellij.kdl) to get started
 
 Once installed simply run
 
