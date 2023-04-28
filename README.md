@@ -84,9 +84,19 @@ You need to have these installed
 
 - [nodejs](https://nodejs.org/en)
 
-- [pnpm](https://pnpm.io/) (can be installed via: `npm i -g pnpm`)
+- [pnpm](https://pnpm.io/)
 
-- [foundry](https://getfoundry.sh/) (can be installed via: `curl -L https://foundry.paradigm.xyz | bash;` and `foundryup`)
+  ```bash
+  npm i -g pnpm
+  ```
+
+- [foundry](https://getfoundry.sh/)
+
+  ```bash
+  curl -L https://foundry.paradigm.xyz | bash;
+  export PATH=$HOME/.foundry/bin:$PATH # or load it from your shell config which the script above should have configured
+  foundryup
+  ```
 
 Then you need to install the local dependencies with the following command:
 
