@@ -19,21 +19,25 @@ wezterm.on('gui-startup', function()
   tab:set_title 'template-factory'
   window:set_title 'template-factory'
   
-  local watch_deploy_pane = pane:split {
-    args = {'bash', '-i', '-c', 'cd ' .. cwd ..'; sleep 1; pnpm watch_deploy; ' ..shell},
+  -- local watch_deploy_pane = pane:split {
+  --   args = {'bash', '-i', '-c', 'cd ' .. cwd ..'; sleep 1; pnpm watch_deploy; ' ..shell},
+  --   direction = 'Bottom'
+  -- }
+  local watch_test_pane = pane:split {
+    args = {'bash', '-i', '-c', 'cd ' .. cwd ..'; sleep 1; pnpm watch_test; ' ..shell},
     direction = 'Bottom'
   }
 
-  local anvil_pane = watch_deploy_pane:split {
+  local anvil_pane = watch_test_pane:split {
     args = {'bash', '-i', '-c', 'cd ' .. cwd ..'; anvil; ' ..shell},
     direction = 'Right'
   }
 
-  local watch_compile_pane = watch_deploy_pane:split {
-    --args = {'bash', '-i', '-c', 'sleep 1; pnpm watch_compile; bash'},
-    args = {'bash', '-i', '-c', 'cd ' .. cwd ..'; sleep 1; pnpm watch_compile; ' ..shell},
-    direction = 'Bottom'
-  }
+  -- local watch_compile_pane = watch_deploy_pane:split {
+  --   --args = {'bash', '-i', '-c', 'sleep 1; pnpm watch_compile; bash'},
+  --   args = {'bash', '-i', '-c', 'cd ' .. cwd ..'; sleep 1; pnpm watch_compile; ' ..shell},
+  --   direction = 'Bottom'
+  -- }
 
   
 end)
