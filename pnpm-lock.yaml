@@ -8,8 +8,8 @@ devDependencies:
     specifier: 0.0.27-rc.6
     version: 0.0.27-rc.6
   ldenv:
-    specifier: ^0.2.1
-    version: 0.2.1
+    specifier: ^0.2.2
+    version: 0.2.2
   set-defaults:
     specifier: ^0.0.1
     version: 0.0.1
@@ -32,7 +32,7 @@ packages:
     hasBin: true
     dependencies:
       '@parcel/watcher': 2.1.0
-      ldenv: 0.2.1
+      ldenv: 0.2.2
       lodash: 4.17.21
       lodash-es: 4.17.21
     dev: true
@@ -166,8 +166,8 @@ packages:
     engines: {node: '>=0.12.0'}
     dev: true
 
-  /ldenv@0.2.1:
-    resolution: {integrity: sha512-TJh6oY9eqAlvlGFripcLm2BfHD18AJwYoep1l6HS7RjY1tv8AYpT0DKy7bXpbarX+4AHHmnMFsUGfTJzG5/3xQ==}
+  /ldenv@0.2.2:
+    resolution: {integrity: sha512-WsVOhnvQlsV6xmUaguq2J/JYza0XW30bj4okSxf+q4nFrnyMOYJEwVThpmikvXywll8TY3c03swgaL0SNVgCkg==}
     hasBin: true
     dependencies:
       dotenv: 16.0.3

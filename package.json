@@ -10,7 +10,7 @@
   "devDependencies": {
     "as-soon": "^0.0.4",
     "forge-deploy": "0.0.27-rc.6",
-    "ldenv": "^0.2.1",
+    "ldenv": "^0.2.2",
     "set-defaults": "^0.0.1"
   },
   "scripts": {
