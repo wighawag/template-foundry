@@ -84,6 +84,11 @@ You need to have these installed
 
 - [nodejs](https://nodejs.org/en)
 
+  For windows (see more info [here](#windows)), you will need to select the option "Automatically install the necessary tools....". Note that process will open a powershell window and will take a while (it does not even show progress).
+
+  This step will allow foundry/forge to work
+
+
 - [pnpm](https://pnpm.io/)
 
   ```bash
@@ -110,15 +115,7 @@ We also recommend to install [zellij(https://zellij.dev/)] to have your dev env 
 
 Tested from a fresh install of : https://www.microsoft.com/en-US/software-download/windows10ISO on [virtualbox](https://www.virtualbox.org/).
 
-You need to install [Visual Studio Community](https://visualstudio.microsoft.com/free-developer-offers/) on it.
-
-This is the [direct link](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&passive=false&cid=2030) to the Installer (as of today, 2023/04/26) :
-
-You have to install the installer and then install Visual Studio Community with it.
-
-!! **Do not forget to pick the "Desktop Development With C++" in the "Worloads" tab. You do not need anything more.**
-
-Next we want to install bash if you do not have already. For that we are using git which comes with bash.
+You first install bash if you do not have already. For that we are using git which comes with bash.
 
 You can install it via [scoop](https://scoop.sh/).
 
