@@ -66,7 +66,7 @@ pnpm script localhost script/UpdateCounter.s.sol --sig 'run(uint256)' 42;
 
 ### zellij
 
-[zellij(https://zellij.dev/)] is a useful multiplexer (think tmux) for which we have included a [layout file](./zellij.kdl) to get started
+[zellij](https://zellij.dev/) is a useful multiplexer (think tmux) for which we have included a [layout file](./zellij.kdl) to get started
 
 Once installed simply run
 
@@ -74,12 +74,18 @@ Once installed simply run
 pnpm start
 ```
 
-And you'll have anvil running as well as watch process deploying contract on src changes
+And you'll have anvil running as well as watch process executing tests on changes
 
 if you want to try zellij without install try this :
 
 ```bash
 bash <(curl -L zellij.dev/launch) --layout zellij.kdl
+```
+
+In the shell in the upper pane, you can deploy your contract via
+
+```bash
+pnpm run deploy
 ```
 
 ## Initial Setup
@@ -109,10 +115,10 @@ You need to have these installed
 Then you need to install the local dependencies with the following command:
 
 ```bash
-pnpm i;
+pnpm i
 ```
 
-We also recommend to install [zellij(https://zellij.dev/)] to have your dev env setup in one go via `pnpm start`
+We also recommend to install [zellij](https://zellij.dev/) to have your dev env setup in one go via `pnpm start`
 
 ### Windows
 
