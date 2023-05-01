@@ -6,7 +6,7 @@
 
 A template to build, deploy and test smart contracts using [foundry-rs/forge](https://github.com/foundry-rs/foundry) and [forge-deploy](https://github.com/wighawag/forge-deploy)
 
-It uses npm to make it easy to integrate in a full stack monorepo. You can find another version of the repo, which uses cargo and bash instead [here](https://github.com/wighawag/template-foundry/tree/bash)
+This template uses npm to make it easy to integrate in a full stack monorepo.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/wighawag/template-foundry)
 
