@@ -7,6 +7,9 @@ devDependencies:
   forge-deploy:
     specifier: 0.0.34
     version: 0.0.34
+  forge-deploy-proxy:
+    specifier: ^0.0.1
+    version: 0.0.1
   ldenv:
     specifier: ^0.2.2
     version: 0.2.2
@@ -102,6 +105,10 @@ packages:
     peerDependenciesMeta:
       debug:
         optional: true
+    dev: true
+
+  /forge-deploy-proxy@0.0.1:
+    resolution: {integrity: sha512-6m7CECeKTaE9w2ymSWOffyj//CV1ly7m7cbuGDhK3/Fcw+ozC8sll9hC4anhSpMS7ii6fEAHgKPVaVPZs0k/Ew==}
     dev: true
 
   /forge-deploy@0.0.34:

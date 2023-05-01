@@ -10,6 +10,7 @@
   "devDependencies": {
     "as-soon": "^0.0.4",
     "forge-deploy": "0.0.34",
+    "forge-deploy-proxy": "^0.0.1",
     "ldenv": "^0.2.2",
     "set-defaults": "^0.0.1"
   },
@@ -18,11 +19,12 @@
     "start": "zellij --layout zellij.kdl a template-foundry || zellij --layout zellij.kdl -s template-foundry",
     "stop": "zellij kill-session template-foundry",
     "start:wezterm": "wezterm --config-file wezterm.lua",
-    "compile": "forge-deploy gen-deployer && forge build",
+    "gen-deployer": "forge-deploy gen-deployer --templates node_modules/forge-deploy-proxy/templates",
+    "compile": "pnpm gen-deployer && && forge build",
     "forge-deploy": "forge-deploy",
     "export": "forge-deploy export",
     "deployments:sync": "forge-deploy sync",
-    "test": "forge-deploy gen-deployer && forge test",
+    "test": "pnpm gen-deployer && forge test",
     "watch_compile": "as-soon -w script -w src -w test pnpm compile",
     "watch_deploy": "as-soon -w script -w src -w test pnpm run deploy",
     "watch_test": "as-soon -w script -w src -w test pnpm test",

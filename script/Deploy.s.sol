@@ -2,13 +2,15 @@
 pragma solidity ^0.8.13;
 
 import {DeployScript, Deployer} from "forge-deploy/DeployScript.sol";
-import {DeployerFunctions} from "generated/deployer/DeployerFunctions.g.sol";
-import {Counter} from "src/Counter.sol";
+import {ProxiedDeployerFunctions, ProxiedDeployOptions} from "generated/deployer/ProxiedDeployerFunctions.g.sol";
+import {GreetingsRegistry} from "src/GreetingsRegistry.sol";
 
 contract Deployments is DeployScript {
-    using DeployerFunctions for Deployer;
+    using ProxiedDeployerFunctions for Deployer;
 
-    function deploy() external returns (Counter) {
-        return deployer.deploy_Counter("MyCounter");
+    function deploy() external returns (GreetingsRegistry) {
+        return deployer.deploy_GreetingsRegistry(
+            "Registry", "", ProxiedDeployOptions({proxyOnTag: "testnet", proxyOwner: vm.envAddress("DEPLOYER")})
+        );
     }
 }
