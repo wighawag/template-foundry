@@ -9,8 +9,8 @@
   ],
   "devDependencies": {
     "as-soon": "^0.0.4",
-    "forge-deploy": "0.0.34",
-    "forge-deploy-proxy": "^0.0.1",
+    "forge-deploy": "0.0.35",
+    "forge-deploy-proxy": "^0.0.2",
     "ldenv": "^0.2.2",
     "set-defaults": "^0.0.1"
   },
