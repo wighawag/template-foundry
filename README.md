@@ -57,6 +57,12 @@ pnpm watch_compile
   ```bash
   pnpm run deploy <network>
   ```
+  
+### export your contracts (abi+address):
+  
+  ```bash
+  pnpm export localhost contracts.json
+  ```
 
 ### execute script on the deployed contract
 
