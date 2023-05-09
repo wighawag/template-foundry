@@ -20,7 +20,7 @@
     "stop": "zellij kill-session template-foundry",
     "start:wezterm": "wezterm --config-file wezterm.lua",
     "gen-deployer": "forge-deploy gen-deployer --templates node_modules/forge-deploy-proxy/templates",
-    "compile": "pnpm gen-deployer && && forge build",
+    "compile": "pnpm gen-deployer && forge build",
     "forge-deploy": "forge-deploy",
     "export": "forge-deploy export",
     "deployments:sync": "forge-deploy sync",
