@@ -8,13 +8,18 @@
     "src"
   ],
   "devDependencies": {
+    "@viem/anvil": "^0.0.5",
     "as-soon": "^0.0.4",
     "forge-deploy": "0.0.35",
     "forge-deploy-proxy": "^0.0.2",
     "ldenv": "^0.2.2",
-    "set-defaults": "^0.0.1"
+    "set-defaults": "^0.0.1",
+    "typescript": "^5.0.4",
+    "viem": "^0.3.17",
+    "vitest": "^0.31.0"
   },
   "scripts": {
+    "test-js": "vitest",
     "prepare": "set-defaults .vscode && forge install --no-git foundry-rs/forge-std@v1.5.3 || echo ''",
     "start": "zellij --layout zellij.kdl a template-foundry || zellij --layout zellij.kdl -s template-foundry",
     "stop": "zellij kill-session template-foundry",
