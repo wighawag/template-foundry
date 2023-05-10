@@ -11,8 +11,8 @@ devDependencies:
     specifier: ^0.0.2
     version: 0.0.2(forge-deploy@0.0.35)
   ldenv:
-    specifier: ^0.2.2
-    version: 0.2.2
+    specifier: ^0.3.5
+    version: 0.3.5
   set-defaults:
     specifier: ^0.0.1
     version: 0.0.1
@@ -179,6 +179,14 @@ packages:
 
   /ldenv@0.2.2:
     resolution: {integrity: sha512-WsVOhnvQlsV6xmUaguq2J/JYza0XW30bj4okSxf+q4nFrnyMOYJEwVThpmikvXywll8TY3c03swgaL0SNVgCkg==}
+    hasBin: true
+    dependencies:
+      dotenv: 16.0.3
+      dotenv-expand: 10.0.0
+    dev: true
+
+  /ldenv@0.3.5:
+    resolution: {integrity: sha512-+mJ/nU6tdTxpDua8sJj06wc5sllPUPWAWkw1AMiQMCFvfdeyxQbzCOeft3HjDjGu9Y9a7v5GSndUyrYBm1Nw8Q==}
     hasBin: true
     dependencies:
       dotenv: 16.0.3
