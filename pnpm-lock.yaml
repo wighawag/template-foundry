@@ -5,11 +5,11 @@ devDependencies:
     specifier: ^0.0.4
     version: 0.0.4
   forge-deploy:
-    specifier: 0.0.35
-    version: 0.0.35
+    specifier: 0.0.35-experimental.1
+    version: 0.0.35-experimental.1
   forge-deploy-proxy:
-    specifier: ^0.0.2
-    version: 0.0.2(forge-deploy@0.0.35)
+    specifier: 0.0.2-experimental.1
+    version: 0.0.2-experimental.1(forge-deploy@0.0.35-experimental.1)
   ldenv:
     specifier: ^0.3.5
     version: 0.3.5
@@ -107,16 +107,16 @@ packages:
         optional: true
     dev: true
 
-  /forge-deploy-proxy@0.0.2(forge-deploy@0.0.35):
-    resolution: {integrity: sha512-qB1/vzs2TY8F+1Yj8bD5xocoXzLuEVYU0D9OUSR/iDve3ONtC6KV9QERCyPxsnS9+5miC/4yUIqhclbo7VnDLg==}
+  /forge-deploy-proxy@0.0.2-experimental.1(forge-deploy@0.0.35-experimental.1):
+    resolution: {integrity: sha512-KqjJx+0Az+kHL+CD5PTl9YmYDNMJh0CJF26nhHyJAmS1p4AbW/97+ir0z8ZtqQZvmFaarzIOhMT7PuPb1zZW2Q==}
     peerDependencies:
       forge-deploy: ^0.0.35
     dependencies:
-      forge-deploy: 0.0.35
+      forge-deploy: 0.0.35-experimental.1
     dev: true
 
-  /forge-deploy@0.0.35:
-    resolution: {integrity: sha512-ozxMC+C+Omptx9C6jjvKdPEHxhC6d4zX2+CPJZpH8VbUjKzV2ab1JFC/+9EaVjUuEbfwStjHXwUZr+pDk9v9bg==}
+  /forge-deploy@0.0.35-experimental.1:
+    resolution: {integrity: sha512-c0W8sy8mFiLkmB9VUVCWnhi54Tmq15F2tb91EcP1qZ51XM5SmZ9JAWJewLKfmfH10jb1XZ9mFfMYSVzMZYBI5A==}
     hasBin: true
     requiresBuild: true
     dependencies:

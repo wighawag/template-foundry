@@ -9,8 +9,8 @@
   ],
   "devDependencies": {
     "as-soon": "^0.0.4",
-    "forge-deploy": "0.0.35",
-    "forge-deploy-proxy": "^0.0.2",
+    "forge-deploy": "0.0.35-experimental.1",
+    "forge-deploy-proxy": "0.0.2-experimental.1",
     "ldenv": "^0.3.5",
     "set-defaults": "^0.0.1"
   },
@@ -19,7 +19,7 @@
     "start": "zellij --layout zellij.kdl a template-foundry || zellij --layout zellij.kdl -s template-foundry",
     "stop": "zellij kill-session template-foundry",
     "start:wezterm": "wezterm --config-file wezterm.lua",
-    "gen-deployer": "forge-deploy gen-deployer --templates node_modules/forge-deploy-proxy/templates",
+    "gen-deployer": "forge-deploy gen-deployer --templates templates,node_modules/forge-deploy-proxy/templates",
     "compile": "pnpm gen-deployer && forge build",
     "forge-deploy": "forge-deploy",
     "export": "forge-deploy export",
