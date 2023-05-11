@@ -6,12 +6,12 @@ import {ProxiedDeployerFunctions, ProxiedDeployOptions} from "generated/deployer
 import {GreetingsRegistry} from "src/GreetingsRegistry.sol";
 import {TypedDeployerFunctions} from "generated/deployer/DeployerFunctions.g.sol";
 
-contract Deployments is DeployScript {
+contract DeploymentsProcedure is DeployScript {
     using ProxiedDeployerFunctions for Deployer;
     using TypedDeployerFunctions for Deployer;
 
     function deploy() external returns (GreetingsRegistry) {
-        deployer.deploy_GreetingsRegistry("Registry", "");
+        deployer.deploy_GreetingsRegistry("FixedRegistry", "");
 
         return deployer.deploy_GreetingsRegistry(
             "Registry", "", ProxiedDeployOptions({proxyOnTag: "testnet", proxyOwner: vm.envAddress("DEPLOYER")})

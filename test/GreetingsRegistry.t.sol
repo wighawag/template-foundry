@@ -3,15 +3,15 @@ pragma solidity ^0.8.13;
 
 import {Test} from "forge-std/Test.sol";
 import {GreetingsRegistry} from "src/GreetingsRegistry.sol";
-import {Deployments} from "script/Deploy.s.sol";
+import {DeploymentsProcedure} from "script/Deploy.s.sol";
 
 contract GreetingsRegistryTest is Test {
     GreetingsRegistry public registry;
 
     function setUp() public {
-        Deployments deployments = new Deployments();
-        deployments.setAutoBroadcast(false);
-        registry = deployments.deploy();
+        DeploymentsProcedure procedure = new DeploymentsProcedure();
+        procedure.setAutoBroadcast(false);
+        registry = procedure.deploy();
         registry.setMessage("hello", 1);
     }
 
