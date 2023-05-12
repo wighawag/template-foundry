@@ -5,7 +5,7 @@ import {DeployScript, Deployer} from "forge-deploy/DeployScript.sol";
 import {ProxiedDeployerFunctions, ProxiedDeployOptions} from "generated/deployer/ProxiedDeployerFunctions.g.sol";
 import {GreetingsRegistry} from "src/GreetingsRegistry.sol";
 
-contract Deployments is DeployScript {
+contract DeploymentsProcedure is DeployScript {
     using ProxiedDeployerFunctions for Deployer;
 
     function deploy() external returns (GreetingsRegistry) {
